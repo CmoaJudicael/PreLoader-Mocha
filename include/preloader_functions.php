@@ -82,14 +82,4 @@
             add_action('wp_head', 'hook_javascript');
 
     }
-    else
-    {
-        // pas d'animation choisi en commantaire dans le body
-        add_action( 'wp_body_open', 'wpdoc_add_custom_body_open_code', 1 );
-     
-        function wpdoc_add_custom_body_open_code() 
-        {
-            echo '<!-- pas d\'animation choisi -->';
-        } 
-    }
 ?>
