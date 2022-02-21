@@ -188,7 +188,7 @@
         
         <a  href="" target="popup" onclick="window.open('<?php echo plugin_dir_url(__FILE__) . 'form_contact.php'; ?>','popup','width=600,height=600'); return false;">
           <div class="call bordure flexB lien">
-            <p style="text-align: center;">Vous désirez une animation vous correspondant <br>Contactez-nous</p>
+            <p style="text-align: center;">Vous désirez une animation qui reflète votre personnalité<br>Contactez-nous</p>
           </div>
         </a> 
       </div>
