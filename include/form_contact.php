@@ -11,7 +11,7 @@
 
 <h1>Envoyez nous votre demande</h1> 
 <!-- Formulaire -->
-    <form  method="POST" action="mail.php" ></form>
+    <form  method="post" action="mail.php" >
         <div>
             <label>Votre Nom</label><br>
             <input type="text" name="nom" required>
@@ -37,7 +37,7 @@
             <textarea rows="10" cols="30" name="message"></textarea>
         </div>
         <div>
-            <button type="submit">Envoyer</button>
+            <input type="submit" value="Envoyer">
         </div>
     </form>
 <?php

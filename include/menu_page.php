@@ -1,6 +1,11 @@
 <div class="wrap">
 <!-- header -->
   <header>    
+      <a  href="" target="popup" onclick="window.open('<?php echo plugin_dir_url(__FILE__) . 'form_contact.php'; ?>','popup','width=600,height=600'); return false;">
+          <div class="call bordure flexB lien">
+            <p style="text-align: center;">Vous désirez une animation qui reflète votre personnalité<br>Contactez-nous</p>
+          </div>
+      </a> 
     <img id="image_header" src="<?php echo plugin_dir_url(__FILE__) . 'img/Bannière_preloader.png' ?>">   
   </header>
 <!-- texte et bouton -->
@@ -16,7 +21,42 @@ Simples et efficaces nos preloader n'impactent pas le chargement de vos pages we
 <!-- Style CSS -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500;700;900&family=Montserrat:wght@300;500;700;900&display=swap');
-
+    
+  /**lien */
+    .lien
+    {
+      font-size: 15px;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.5s;
+    }
+    .lien:hover
+    {
+      color:#28283A;
+      background-color: #FCC600;
+      transition: all 0.5s;
+    }
+    .call
+    {
+      position: relative;
+      left: 220px;
+      top: 10px;
+      width: 400px;
+      height: 100px;
+      justify-content: center;
+      align-items: center;
+      background-color: #28283A;
+    }
+    .flexB
+    {
+      display: flex;
+    }
+    .bordure
+    {
+      border-radius: 30px;
+      border:2px #00a993 solid;
+    }
+  /**menu */
     body
     {
       background-color: #28283a;

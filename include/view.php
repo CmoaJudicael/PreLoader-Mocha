@@ -1,4 +1,10 @@
-<div class="mocha" id="preloader">
+
+
+<?php
+if (get_option('button_OnOff') == "on")
+{
+    ?>
+    <div class="mocha" id="preloader">
 
 <!-- cadre de l'animation -->
     <div id="BackContainer">        
@@ -532,3 +538,7 @@
 
     </script>
 </div>
+<?php
+}
+
+?>

@@ -7,6 +7,7 @@
             do_settings_sections( 'Mocha_Prod_Preloader_Lotti_page' );
             ?><p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary Pos_Button" value="SAUVEGARDER & PREVISUALISER" style="background-color: #28283a;"></p>
             <?php 
+            do_settings_sections( 'button_OnOff_page' );
             do_settings_sections( 'Mocha_Prod_Preloader_menu_1_page' );
         ?>
     </form>

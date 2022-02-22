@@ -47,7 +47,7 @@
         }
     </script>
 <!-- cadre de l'animation -->
-    <div id="BackContainer">        
+    <div id="BackContainer">
         <div id="animation"  >
           <!-- Visualiseur -->
             <?php
@@ -544,7 +544,7 @@
         .message
         {
             position:absolute;
-            bottom: 130px;
+            bottom: <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '145px';break;case 'animation LottiFile':echo '145px';break;case 'animation CSS':echo '160px';break;}?>;
             left: 350px;
         }        
         .position_menu_0

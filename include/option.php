@@ -22,6 +22,20 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
     function creation_parametre()
     {
     //
+    //settings ON/OFF
+      //
+      //button_OnOff
+        register_setting( 
+            'Mocha_Plugin_Settings', // Settings group.
+            'button_OnOff',        // Setting name
+            array(
+                'type'              => 'string',
+                'description'       => '',
+                'sanitize_callback' => 'sanitize_text_field'
+            )   
+            
+        );
+    //
     //settings logo
       //
       //logo_url
@@ -456,7 +470,17 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
         {
         
         }
+    //
+    //section ON_OFF
+        add_settings_section( 
+            'button_OnOff_option',                   // Section ID
+            '',  // Title
+            '',            // Callback or empty string
+            'button_OnOff_page'            // Page to display the section in.
+        );
+    //
     }
+
 
 //
 //creation des settings_field
@@ -480,6 +504,110 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                     <input class="regular-text" type="hidden" name="tuto_affichage" value="<?php if(get_option('tuto_affichage')==''){ echo esc_attr( '1' );}else if(get_option('tuto_affichage')=='1'){echo esc_attr( '' );}else{echo esc_attr( '' );}?>">
                 <?php
             }
+    //
+    //button_OnOff_setting_field
+      //button_OnOff
+        add_settings_field( 
+            'button_OnOff_affichage_field',                // Field ID
+            '',                       // Title
+            __( 'button_OnOff_affichage_field_markup', 'example' ),     // Callback to display the field
+            'button_OnOff_page',                // Page
+            'button_OnOff_option',                      // Section
+            );
+        function button_OnOff_affichage_field_markup( $args )
+        {
+            $setting = get_option( 'button_OnOff' );
+            $value   = $setting ?: '';
+            ?>
+                <div class="_switchContainer">
+                    <label>Activez le preloader</label>
+                <label class="_switch" id="Activation" >
+                    <input type="checkbox" name="button_OnOff" value="on"  <?php if($value=='on'){echo "checked";} ?>>
+                    <span class="_slider round"></span>
+                </label>
+                </div>
+               <!--style switch-->
+                <style>/* The switch - the box around the slider */
+                    ._switchContainer
+                    {
+                        position: relative;
+                        left: -150px;
+                        top : <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '-140px';break;case 'animation LottiFile':echo '-140px';break;case 'animation CSS':echo '-120px';break;}?>;
+                    }
+                    ._switch 
+                    {
+                        position: relative;
+                        left: 60px;
+                        display: inline-block;
+                        width: 60px;
+                        height: 34px;
+                    }
+
+                    /* Hide default HTML checkbox */
+                    ._switch input 
+                    {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+
+                    /* The slider */
+                    ._slider 
+                    {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: #FFFFFF;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                    }
+
+                    ._slider:before 
+                    {
+                        position: absolute;
+                        content: "";
+                        height: 26px;
+                        width: 26px;
+                        left: 4px;
+                        bottom: 4px;
+                        background-color: #fcc600;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                    }
+
+                    input:checked + ._slider 
+                    {
+                        background-color: #28283A;
+                    }
+
+                    input:focus + ._slider 
+                    {
+                        box-shadow: 0 0 1px #2196F3;
+                    }
+
+                    input:checked + ._slider:before 
+                    {
+                        -webkit-transform: translateX(26px);
+                        -ms-transform: translateX(26px);
+                        transform: translateX(26px);
+                    }
+
+                    /* Rounded _sliders */
+                    ._slider.round 
+                    {
+                        border-radius: 34px;
+                    }
+
+                    ._slider.round:before 
+                    {
+                        border-radius: 50%;
+                    }
+                </style>
+            <?php
+        }
     //
     //Gif setting field
       //gif_animation_selection
@@ -1233,9 +1361,8 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             ?>
                 <input class="regular-text" type="hidden" name="menu_position" value="<?php echo esc_attr( '1' );?>">
             <?php
-        }      
-    
-        
+        }
+    //        
     }
 //
 // Instantiate the plugin class.
