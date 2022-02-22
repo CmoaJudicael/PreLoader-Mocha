@@ -11,43 +11,35 @@
 
 <h1>Envoyez nous votre demande</h1> 
 <!-- Formulaire -->
-    <form  method="post" action="mail.php" >
-        <div>
+    <form class="flexB flexB-column"  method="post" action="mail.php" >
+        <div class="flexB flexB-column flexB-JContent-center">
             <label>Votre Nom</label><br>
             <input type="text" name="nom" required>
         </div>
-        <div>
+        <div class="flexB flexB-column flexB-JContent-center">
             <label>Votre Prenom</label><br>
             <input type="text" name="prenom" required>
         </div>
-        <div>
+        <div class="flexB flexB-column flexB-JContent-center">
             <label>Votre Société</label><br>
             <input type="text" name="societe">
         </div>
-        <div>
+        <div class="flexB flexB-column flexB-JContent-center">
             <label>Votre Numero de téléphone</label><br>
             <input type="number" name="phone">
         </div>
-        <div>
+        <div class="flexB flexB-column flexB-JContent-center">
             <label>Votre email</label><br>
             <input type="email" name="email" required>
         </div>
-        <div>
+        <div class="flexB flexB-column flexB-JContent-center">
             <label>Tapez votre message ici pour nous contacter</label><br>
             <textarea rows="10" cols="30" name="message"></textarea>
         </div>
-        <div>
-            <input type="submit" value="Envoyer">
+        <div class="flexB buttonContainer">
+            <input class="button" type="submit" value="Envoyer">
         </div>
     </form>
-<?php
-
-if (isset($_POST['name']))
-{
-    var_dump($_POST['name']);
-}
-
-?>
 
 <!-- Style -->
     <style>
@@ -55,11 +47,6 @@ if (isset($_POST['name']))
         {
             background-color: #28283A;
             color: whitesmoke;
-        }
-        .form
-        {
-            display: flex;
-            flex-direction: column;
         }
         .button 
         {
@@ -71,6 +58,22 @@ if (isset($_POST['name']))
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
+        }
+        .buttonContainer
+        {
+            justify-content: end;
+        }
+        .flexB
+        {
+            display: flex;
+        }
+        .flexB-column
+        {
+            flex-direction: column;
+        }
+        .flexB-JContent-center
+        {
+            justify-content: center;
         }
     </style>
 </body>

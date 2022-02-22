@@ -8,8 +8,9 @@
 <body>
 
 
-
-<?php
+<div class="retour">
+    
+    <?php
     if (isset($_POST['nom'])) 
     {
         $nom = filter_var($_POST['nom'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -52,20 +53,28 @@
     
     if (mail('mocha.prod@gmail.com','Prise de contact',$prenom.' '.$nom.$societe.', voudrais vous contactez.'.'\n'.$email.'\n'.$phone.'\n'.$message ,'From: '.$email))
     {
-        echo 'Votre message est bien envoyer';
+        echo '<p>Votre message est bien envoyer</p>';
     }
     else
     {
-        echo 'Il y a eu un soucis dans l\'envoie de votre message';
+        echo '<p>Il y a eu un soucis dans l\'envoie de votre message</p>';
     }
     
     ?>
-        <button class="button" onclick="self.close()">Fermez cette fenêtre</button>
-    <?php
+</div>
+<div class="retour">
+    <button class="button" onclick="self.close()">Fermez cette fenêtre</button>
+</div>
 
-?>
 <!-- Style -->
     <style>
+        .retour
+        {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 200px;
+        }
         body
         {
             background-color: #28283A;
