@@ -25,15 +25,14 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
     //settings ON/OFF
       //
       //button_OnOff
-        register_setting( 
+        register_setting(
             'Mocha_Plugin_Settings', // Settings group.
             'button_OnOff',        // Setting name
             array(
                 'type'              => 'string',
                 'description'       => '',
                 'sanitize_callback' => 'sanitize_text_field'
-            )   
-            
+            )
         );
     //
     //settings logo
@@ -376,6 +375,30 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
         ); 
         
     //
+    //settings Menu text anim8
+      //
+      //text_animation8
+        register_setting(
+            'Menu_sup_animation8', // Settings group.
+            'text_anim_8',        // Setting name
+            array(
+                'type'              => 'string',
+                'description'       => '',
+                'sanitize_callback' => 'sanitize_text_field'
+            )
+        );
+      //
+      //size_animation8
+        register_setting(
+            'Menu_sup_animation8', // Settings group.
+            'size_anim_8',        // Setting name
+            array(
+                'type'              => 'string',
+                'description'       => '',
+                'sanitize_callback' => 'sanitize_text_field'
+            )
+        );
+    //
     
     }
     
@@ -479,6 +502,14 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             'button_OnOff_page'            // Page to display the section in.
         );
     //
+    //section text anim8
+        add_settings_section( 
+            'anim8_text_option',                   // Section ID
+            '',  // Title
+            '',            // Callback or empty string
+            'anim8_text_page'            // Page to display the section in.
+        );
+    //
     }
 
 
@@ -487,6 +518,42 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
     function creation_settings_field()
     {
     //
+    //anim8_text
+      //anim8_text
+        add_settings_field( 
+            'anim8_text_animation',                // Field ID
+            'Saisissez votre text :',                       // Title
+            __( 'anim8_text_field_markup', 'example' ),     // Callback to display the field
+            'anim8_text_page',                // Page
+            'anim8_text_option',                      // Section
+        );
+        function anim8_text_field_markup( $args )
+        {
+            $setting = get_option( 'text_anim_8' );
+            $value   = $setting ?: '';
+            ?>
+                <input type="textarea" name="text_anim_8" rows="5" cols="33" value="<?php echo esc_attr( $value );?>">   
+                <p>terminez chaque phrase par ':' (ex: "phrase1 : Phrase2 :)</p> 
+            <?php
+        }  
+      //anim8_fontSize
+        add_settings_field( 
+            'anim8_size_animation',                // Field ID
+            'taille du texte (10-50) :',                       // Title
+            __( 'anim8_size_field_markup', 'example' ),     // Callback to display the field
+            'anim8_text_page',                // Page
+            'anim8_text_option',                      // Section
+        );
+        function anim8_size_field_markup( $args )
+        {
+            $setting = get_option( 'size_anim_8' );
+            $value   = $setting ?: '';
+            ?>
+                <input type="number" name="size_anim_8" rows="5" cols="33" min="10" max="50" value="<?php echo esc_attr( $value );?>">    
+            <?php
+        }  
+      
+    //  
     //Tuto_setting_field
       //tuto_affichage
             add_settings_field( 
@@ -721,7 +788,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
               $value   = $setting ?: '';
               ?>
   
-                  <input class="regular-text" type="text" name="gif_width" value="<?php echo esc_attr( $value );?>">
+                  <input class="regular-text" type="number" name="gif_width" value="<?php echo esc_attr( $value );?>">
                   <p>(exemple : 400)</p>
               <?php
           }
@@ -739,7 +806,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                   $value   = $setting ?: '';
                   ?>
       
-                      <input class="regular-text" type="text" name="gif_height" value="<?php echo esc_attr( $value );?>">
+                      <input class="regular-text" type="number" name="gif_height" value="<?php echo esc_attr( $value );?>">
                   <?php
               }
       //gif_duree_animation
@@ -756,7 +823,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                 $value   = $setting ?: '';
                 ?>
     
-                    <input class="regular-text" type="text" name="gif_duree_animation" value="<?php echo esc_attr( $value );?>">
+                    <input class="regular-text" type="number" name="gif_duree_animation" value="<?php echo esc_attr( $value );?>">
                     <p>(exemple : 2)</p>
                 <?php
             }
@@ -910,7 +977,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
 
-                <input class="regular-text" type="text" name="lotti_width" value="<?php echo esc_attr( $value );?>">
+                <input class="regular-text" type="number" name="lotti_width" value="<?php echo esc_attr( $value );?>">
                 <p>(exemple : 400)</p>
             <?php
         }
@@ -928,7 +995,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
 
-                <input class="regular-text" type="text" name="lotti_height" value="<?php echo esc_attr( $value );?>">
+                <input class="regular-text" type="number" name="lotti_height" value="<?php echo esc_attr( $value );?>">
                 
             <?php
         }
@@ -946,7 +1013,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
 
-                <input class="regular-text" type="text" name="lotti_duree_animation" value="<?php echo esc_attr( $value );?>">
+                <input class="regular-text" type="number" name="lotti_duree_animation" value="<?php echo esc_attr( $value );?>">
                 <p>(exemple : 1)</p>
             <?php
         }
@@ -1007,6 +1074,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                     <option value="css_animation_5" <?php if (get_option( 'css_code_animation')=='css_animation_5'){echo 'selected';} ?>>Design géométrique </option>
                     <option value="css_animation_6" <?php if (get_option( 'css_code_animation')=='css_animation_6'){echo 'selected';} ?>>Rain color</option>
                     <option value="css_animation_7" <?php if (get_option( 'css_code_animation')=='css_animation_7'){echo 'selected';} ?>>Xplode</option>
+                    <option value="css_animation_8" <?php if (get_option( 'css_code_animation')=='css_animation_8'){echo 'selected';} ?>>Writting</option>
                 </select>
             <?php
         }
@@ -1093,7 +1161,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
 
-                <input class="regular-text" type="text" name="css_duree_animation" value="<?php echo esc_attr( $value );?>">
+                <input class="regular-text" type="number" name="css_duree_animation" value="<?php echo esc_attr( $value );?>">
                 <p>(exemple : 1)</p>
             <?php
         }
@@ -1181,7 +1249,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
 
-                <input class="regular-text" type="text" name="logo_width" value="<?php echo esc_attr( $value );?>">
+                <input class="regular-text" type="number" name="logo_width" value="<?php echo esc_attr( $value );?>">
             <?php
         }
       //logo_height
@@ -1198,7 +1266,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
 
-                <input class="regular-text" type="text" name="logo_height" value="<?php echo esc_attr( $value );?>">
+                <input class="regular-text" type="number" name="logo_height" value="<?php echo esc_attr( $value );?>">
             <?php
         }
       //logo_isVivible

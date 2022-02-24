@@ -202,6 +202,9 @@
                                     case 'css_animation_7':
                                         include 'view/css/css_animation_7.php';
                                         break;
+                                    case 'css_animation_8':
+                                        include 'view/css/css_animation_8.php';
+                                        break;
                                     }
                                 }
                         ?>
@@ -309,8 +312,27 @@
                 }
             }
         ?>       
+        
+        
 
     </div>
+    <?php
+    if(get_option('css_code_animation')=='css_animation_8')
+    {
+    ?>
+    <div id="menu_text">
+    <form action="options.php" method="POST">
+         <?php
+            settings_fields( 'Menu_sup_animation8' );
+            do_settings_sections( 'anim8_text_page' );
+            ?><p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary Pos_Button" value="SAUVEGARDER & PREVISUALISER" style="background-color: #28283a;"></p>
+            <?php 
+            ?>
+    </form>
+    </div>
+    <?php
+    }
+    ?>
     <div id="menu_logo">
         <button id="button_menu_logo" onclick="onclick_button_menu_logo()" >
             <div class="button_content" id="button_content_logo"><?php if (get_option('menu_position')=='0'){echo '>';}else{if($activeMenuLogo){ if(get_option('logo_isVivible')==''){echo '>';}else{echo '<';}}else{echo '>';}} ?></div>
@@ -585,6 +607,18 @@
             transition: left 1s;
             z-index: 2;
             padding-left: 100px;
+        }
+        #menu_text
+        {
+            position: fixed;
+            left: 500px;
+            top: 30px;
+            padding: 10px;
+            background-color: #FCC600;
+            width: 500px;
+            height: 200px;
+            border-radius: 20px;
+            z-index: 2;
         }
         
         .wrap
@@ -1189,6 +1223,66 @@
         ?>
 
     //
+      /**Script drag and drop menu text */
+      <?php if (get_option('css_code_animation')=='css_animation_8') 
+        {?>
+            
+        var text = document.getElementById('menu_text');
+        var textPosTop = document.getElementById('menu_textTop');
+        var textPosLeft= document.getElementById('menu_textLeft');
+        text.onmousedown = function(event) 
+        {
+            if(menu2.style.left=="-340px")
+            {                
+                onclick_button_menu_logo();
+            }
+            if(menu.style.left=="-330px")
+            {                
+                onclick_button();
+            }
+            let shiftX = event.clientX - text.getBoundingClientRect().left;
+            let shiftY = event.clientY - text.getBoundingClientRect().top;
+
+            text.style.position = 'fixed';
+            text.style.zIndex='9999';
+
+            moveAt(event.pageX, event.pageY);
+
+          // Déplace la text aux cordonnées (pageX, pageY)
+          // Prenant en compte les changements initiaux
+            function moveAt(pageX, pageY) 
+            {
+                text.style.left = pageX - shiftX + 'px';
+                text.style.top = pageY - shiftY + 'px';
+                
+            }
+
+            function onMouseMove(event) 
+            {
+                moveAt(event.pageX, event.pageY);
+            }
+
+          // déplace le text à l’évènement mousemove
+            document.addEventListener('mousemove', onMouseMove);
+
+          // dépose le text, enlève les gestionnaires d’évènements dont on a pas besoin
+            text.onmouseup = function() 
+            {
+                text.style.zIndex='1000';
+                document.removeEventListener('mousemove', onMouseMove);
+                text.onmouseup = null;
+            };
+
+        };
+        text.ondragstart = function() 
+        {
+            return false;
+        };
+           <?php
+        }
+        ?>
+
+    //
       /**FONCTION CENTRER*/
         function centrer(idObj)
         {
@@ -1205,7 +1299,7 @@
             }
             else
             {
-                <?php if (get_option('logo_isVivible')=='1') 
+                <?php if (get_option('text_isVivible')=='1') 
                     {
                         echo 'logoPosLeft.value = logo.style.left;
                         logoPosTop.value=logo.style.top;';
