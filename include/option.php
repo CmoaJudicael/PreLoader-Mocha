@@ -539,7 +539,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //anim8_fontSize
         add_settings_field( 
             'anim8_size_animation',                // Field ID
-            'taille du texte (10-50) :',                       // Title
+            'taille du texte (10-30) :',                       // Title
             __( 'anim8_size_field_markup', 'example' ),     // Callback to display the field
             'anim8_text_page',                // Page
             'anim8_text_option',                      // Section
@@ -549,7 +549,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $setting = get_option( 'size_anim_8' );
             $value   = $setting ?: '';
             ?>
-                <input type="number" name="size_anim_8" rows="5" cols="33" min="10" max="50" value="<?php echo esc_attr( $value );?>">    
+                <input type="number" name="size_anim_8" rows="5" cols="33" min="10" max="30" value="<?php echo esc_attr( $value );?>">    
             <?php
         }  
       
@@ -587,7 +587,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
                 <div class="_switchContainer">
-                    <label>Activez le preloader</label>
+                    <label>Activez pour mettre en ligne</label>
                 <label class="_switch" id="Activation" >
                     <input type="checkbox" name="button_OnOff" value="on"  <?php if($value=='on'){echo "checked";} ?>>
                     <span class="_slider round"></span>
@@ -595,12 +595,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                 </div>
                <!--style switch-->
                 <style>/* The switch - the box around the slider */
-                    ._switchContainer
-                    {
-                        position: relative;
-                        left: -150px;
-                        top : <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '-140px';break;case 'animation LottiFile':echo '-140px';break;case 'animation CSS':echo '-120px';break;}?>;
-                    }
+                    
                     ._switch 
                     {
                         position: relative;
@@ -771,13 +766,13 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             ?>
 
                 <input class="regular-text" type="text" name="gif_background_color" value="<?php echo esc_attr( $value );?>">
-                <p>(exemple : ffff)</p>
+                <p>(exemple : 28283A, ne pas mettre le #)</p>
             <?php
         }
       //gif_width
           add_settings_field( 
               'gif_width_field',                // Field ID
-              'Width (largeur) : px',                       // Title
+              'Width (largeur) : %',                       // Title
               __( 'gif_width_field', 'example' ),     // Callback to display the field
               'Mocha_Prod_Preloader_Gif_page',                // Page
               'animation_gif_option',                      // Section
@@ -789,13 +784,13 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
               ?>
   
                   <input class="regular-text" type="number" name="gif_width" value="<?php echo esc_attr( $value );?>">
-                  <p>(exemple : 400)</p>
+                  <p>(exemple : 40)</p>
               <?php
           }
       //gif_height
               add_settings_field( 
                   'gif_height_field',                // Field ID
-                  'Height (hauteur) : px',                       // Title
+                  'Height (hauteur) : %',                       // Title
                   __( 'gif_height_field', 'example' ),     // Callback to display the field
                   'Mocha_Prod_Preloader_Gif_page',                // Page
                   'animation_gif_option',                      // Section
@@ -824,7 +819,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                 ?>
     
                     <input class="regular-text" type="number" name="gif_duree_animation" value="<?php echo esc_attr( $value );?>">
-                    <p>(exemple : 2)</p>
+                <p style="width: 70%;">(La durée est par défaut de 3s minimum et s’adapte au temps de chargement de vos pages)</p>
                 <?php
             }
       //gif_position_top
@@ -960,13 +955,13 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             ?>
 
                 <input class="regular-text" type="text" name="lotti_background_color" value="<?php echo esc_attr( $value );?>">
-                <p>(exemple : ffff)</p>
+                <p>(exemple : 28283A, ne pas mettre le #)</p>
             <?php
         }
       //lotti_width
         add_settings_field( 
             'lotti_width_field',                // Field ID
-            'Width (largeur) : px',                       // Title
+            'Width (largeur) : %',                       // Title
             __( 'lotti_width_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_Lotti_page',                // Page
             'animation_Lotti_option',                      // Section
@@ -978,13 +973,13 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             ?>
 
                 <input class="regular-text" type="number" name="lotti_width" value="<?php echo esc_attr( $value );?>">
-                <p>(exemple : 400)</p>
+                <p>(exemple : 40)</p>
             <?php
         }
       //lotti_height
         add_settings_field( 
             'lotti_height_field',                // Field ID
-            'Height (hauteur) : px',                       // Title
+            'Height (hauteur) : %',                       // Title
             __( 'lotti_height_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_Lotti_page',                // Page
             'animation_Lotti_option',                      // Section
@@ -1002,7 +997,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //lotti_duree_animation
         add_settings_field( 
             'lotti_duree_animation_field',                // Field ID
-            'Duree animation : s',                       // Title
+            'Durée minimum : s',                       // Title
             __( 'lotti_duree_animation_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_Lotti_page',                // Page
             'animation_Lotti_option',                      // Section
@@ -1014,7 +1009,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             ?>
 
                 <input class="regular-text" type="number" name="lotti_duree_animation" value="<?php echo esc_attr( $value );?>">
-                <p>(exemple : 1)</p>
+                <p style="width: 70%;">(La durée est par défaut de 3s minimum et s’adapte au temps de chargement de vos pages)</p>
             <?php
         }
       //lotti_position_top
@@ -1093,7 +1088,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             ?>
 
                 <input class="regular-text" type="text" name="css_background_color" value="<?php echo esc_attr( $value );?>">
-                <p>(exemple : ffff)</p>
+                <p>(exemple : 28283A, ne pas mettre le #)</p>
             <?php
         }
       //css_couleur_animation   
@@ -1162,7 +1157,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             ?>
 
                 <input class="regular-text" type="number" name="css_duree_animation" value="<?php echo esc_attr( $value );?>">
-                <p>(exemple : 1)</p>
+                <p style="width: 70%;">(La durée est par défaut de 3s minimum et s’adapte au temps de chargement de vos pages)</p>
             <?php
         }
       //css_position_top
@@ -1204,7 +1199,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //logo_url
         add_settings_field( 
             'logo_url_field',                // Field ID
-            'Url de l\'image du logo : ',                       // Title
+            'URL du logo (média) :',                       // Title
             __( 'logo_url_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_logo_page',                // Page
             'logo_animation',                      // Section
@@ -1238,7 +1233,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //logo_width
         add_settings_field( 
             'logo_width_field',                // Field ID
-            'Width (largeur) : px',                       // Title
+            'Width (largeur) : %',                       // Title
             __( 'logo_width_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_logo_page',                // Page
             'logo_animation',                      // Section
@@ -1255,7 +1250,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //logo_height
         add_settings_field( 
             'logo_height_field',                // Field ID
-            'Height (hauteur) : px',                       // Title
+            'Height (hauteur) : %',                       // Title
             __( 'logo_height_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_logo_page',                // Page
             'logo_animation',                      // Section

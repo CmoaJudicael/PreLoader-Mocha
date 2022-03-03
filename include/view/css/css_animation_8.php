@@ -25,7 +25,9 @@
         animation-name: clignoter;
         animation-iteration-count: infinite;
         transition: none;
-        <?php if (get_option('size_anim_8')==''){ echo 'font-size : 10px';}else{ echo 'font-size : '.get_option( 'size_anim_8' ).'px'; } ?>
+        <?php if (get_option('size_anim_8')==''){ echo 'font-size : 10px;';}else{ echo 'font-size : '.get_option( 'size_anim_8' ).'px;'; } ?>
+        <?php if (get_option('css_couleur_animation_3')==''){ echo 'color : #000000;';}else{ echo 'color : #'.get_option('css_couleur_animation_3').';'; } ?>
+        <?php if (get_option('css_couleur_animation_2')==''){ echo 'background-color : #000000;';}else{ echo 'background-color : #'.get_option('css_couleur_animation_2').';'; } ?>
     }
     @keyframes clignoter 
     {
@@ -39,6 +41,9 @@
         display: flex;
         justify-content: center;
         align-items : center;
+        <?php if (get_option('css_couleur_animation')==''){ echo 'color : #000000;';}else{ echo 'color : #'.get_option('css_couleur_animation').';'; } ?>
+        <?php if (get_option('css_couleur_animation_2')==''){ echo 'background-color : #000000;';}else{ echo 'background-color : #'.get_option('css_couleur_animation_2').';'; } ?>
+
     }
 
 
@@ -47,6 +52,7 @@
 
 <script>
     <?php 
+    
     if(get_option( 'text_anim_8' )=="")
     {
         $text_anim =  'je ne sais pas quoi écrire :je sais :je vais écrire quelque chose :';
@@ -64,7 +70,7 @@
     var step = 0;
     var text_num = 0;
 
-    for (i=0; i< text_anim.length; i++) 
+    for (i=0; i < text_anim.length; i++) 
     { 
         if(text_anim[i]!=':')
         {

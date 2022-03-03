@@ -328,6 +328,20 @@ if (get_option('button_OnOff') == "on")
       /**Declaration variable
        *  */       
         var s = document.getElementById('BackContainer').style; 
+        
+        function myFunction()
+        {
+            s.width = (largeurScreen+100)+'px';
+            s.height = (longueurScreen+100)+'px';
+        }
+
+        window.addEventListener('resize', function(event)
+        {
+            s.width = (largeurScreen+100)+'px';
+            s.height = (longueurScreen+100)+'px';
+}); 
+        
+        myFunction();
         var backContainer = document.getElementById('BackContainer');
         var player = document.getElementById('svgContainer');
         var animation = document.getElementById('animation').style;
@@ -347,7 +361,7 @@ if (get_option('button_OnOff') == "on")
                     }
                     else
                     {
-                        echo get_option('gif_width').'px';
+                        echo get_option('gif_width').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation LottiFile')
@@ -358,19 +372,12 @@ if (get_option('button_OnOff') == "on")
                     }
                     else
                     {
-                        echo get_option('lotti_width').'px';
+                        echo get_option('lotti_width').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation CSS')
-                {      
-                    if (get_option('css_width')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('css_width').'px';
-                    }
+                {  
+                    echo '400px';
                 }
             ?> ';
         animation.height='<?php
@@ -382,7 +389,7 @@ if (get_option('button_OnOff') == "on")
                     }
                     else
                     {
-                        echo get_option('gif_height').'px';
+                        echo get_option('gif_height').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation LottiFile')
@@ -393,19 +400,12 @@ if (get_option('button_OnOff') == "on")
                     }
                     else
                     {
-                        echo get_option('lotti_height').'px';
+                        echo get_option('lotti_height').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation CSS')
-                {      
-                    if (get_option('css_height')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('css_height').'px';
-                    }
+                {
+                    echo '400px';
                 }
             ?> ';
         <?php if (get_option('logo_isVivible')=='1') 

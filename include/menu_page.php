@@ -1,18 +1,22 @@
 <div class="wrap">
 <!-- header -->
   <header>    
-      <a  href="" target="popup" onclick="window.open('<?php echo plugin_dir_url(__FILE__) . 'form_contact.php'; ?>','popup','width=500,height=710'); return false;">
-          <div class="call bordure flexB lien">
-            <p style="text-align: center;">Vous désirez une animation qui reflète votre personnalité<br>Contactez-nous</p>
-          </div>
-      </a> 
+      
     <img id="image_header" src="<?php echo plugin_dir_url(__FILE__) . 'img/Bannière_preloader.png' ?>">   
   </header>
 <!-- texte et bouton -->
+  <a id="lienContact" href="" target="popup" onclick="window.open('<?php echo plugin_dir_url(__FILE__) . 'form_contact.php'; ?>','popup','width=500,height=710'); return false;">
+          <div class="call bordure flexB lien">
+            <p style="text-align: center;"><b>PERSONNALISEZ VOTRE PRELOADER !</b>  <br>Notre agence Mocha Production peut vous créer un preloader sur-mesure et optimisé. Contactez-nous</p>
+          </div>
+      </a> 
   <article class="font_style">
-    <p>Mocha preloader vous propose des preloader gif, Css et Lotti à intégrer sur votre site internet.
-Simples et efficaces nos preloader n'impactent pas le chargement de vos pages web. <br> Nous proposons une personnalisation ou l'intégration de votre propre création pour une meilleure attractivité. Notre agence Mocha production peut même vous les créer sur-mesure. <br> </p>
-<p class="center"> Ne patientez plus !</p>
+    <p class="center">Mocha Preloader vous propose des preloader en Gif, Css ou Lotti à intégrer sur votre site internet. <br>
+    Simples et efficaces, nos preloader n'impactent pas le chargement de vos pages web… Vos lecteurs ne perdrons plus patience à attendre ! <br>
+
+
+Nous vous proposons d’intégrer votre propre animation ou personnaliser les nôtres, pour une attractivité à votre image.<br> </p>
+<p class="center"> N’attendez plus, c’est parti !</p>
     
     <a class="start_bouton" href="admin.php?page=Mocha_Prod_Preloader_personnaliser_page" >
       <p><b>COMMENCER</b></p>
@@ -23,6 +27,12 @@ Simples et efficaces nos preloader n'impactent pas le chargement de vos pages we
     @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500;700;900&family=Montserrat:wght@300;500;700;900&display=swap');
     
   /**lien */
+    #lienContact
+    {
+      position: fixed ;
+      left: -150px;
+      top: 40px;
+    }
     .lien
     {
       font-size: 15px;
@@ -60,7 +70,6 @@ Simples et efficaces nos preloader n'impactent pas le chargement de vos pages we
     body
     {
       background-color: #28283a;
-      overflow: hidden;
     }
     header
     {

@@ -4,20 +4,23 @@
         function onclick_button()
         {
             
-            if(menu.style.left=="-330px")
+            if(menu.style.left=="-285px")
             {
-                menu.style.left="-970px";
+                menu.style.left="-870px";
+                menu.style.overflow = "hidden";
+                menu.scrollTop = 0;
                 document.getElementById('button_content_menu').innerText=">";
 
             }
             else
             {                
-                menu.style.left="-330px";
+                menu.style.left="-285px";
+                menu.style.overflow = "hidden scroll";
                 document.getElementById('button_content_menu').innerText="<";
             }
-            if(menu2.style.left=="-340px")
+            if(menu2.style.left=="-300px")
             {
-                menu2.style.left="-980px";
+                menu2.style.left="-950px";
                 document.getElementById('button_content_logo').innerText=">";
 
             }
@@ -26,20 +29,22 @@
         function onclick_button_menu_logo()
         {
             
-            if(menu2.style.left=="-340px")
+            if(menu2.style.left=="-300px")
             {
-                menu2.style.left="-980px";
+                menu2.style.left="-950px";
                 document.getElementById('button_content_logo').innerText=">";
 
             }
             else
             {                
-                menu2.style.left="-340px";
+                menu2.style.left="-300px";
                 document.getElementById('button_content_logo').innerText="<";
             }
-            if(menu.style.left=="-330px")
+            if(menu.style.left=="-285px")
             {
-                menu.style.left="-970px";
+                menu.style.left="-930px";
+                menu.style.overflow = "hidden";
+                menu.scrollTop = 0;
                 document.getElementById('button_content_menu').innerText=">";
 
             }
@@ -378,11 +383,11 @@
                 
             </form>
             <article class="tuto_content">
-            <p>Après avoir configuré votre animation (fenêtre de gauche) vous pouvez la positionner à l'aide du drag and drop à l'emplacement que vous souhaitez sur la page. <br> F5 pour rafraîchir la page si jamais vous n'avez pas sauvegarder vos emplacements</p>
+            <p>Après avoir configuré votre animation (fenêtre de gauche) vous pouvez la positionner à l'aide du drag and drop à l'emplacement que vous souhaitez sur la page. <br> F5 pour annuler vos modifications et revenir sur la dernière sauvegarde</p>
             
 
             </article>
-            <div id="INFO">INFORMATION</div>
+            <div id="INFO">I</div>
         
         </div>
         <?php
@@ -409,7 +414,7 @@
     
 <!-- style à appliquer -->
     <style>    
-    
+      
         @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500;700;900&family=Montserrat:wght@300;500;700;900&display=swap');
       /**style puce radio */
         .puce_radio
@@ -513,14 +518,15 @@
             width: 40px;
             height: 40px;
             background-color:#28283A;
-            position: absolute;
-            left: 950px;
-            top: 30px;
+            position: relative;
+            left: 810px;
+            top: 10px;
             border-radius:50%;
             font-weight: bolder;
             color: #ffffff;
             font-size: 30px;
             display:flex;
+            z-index: 10;
         }
         #button_centrer
         {
@@ -536,9 +542,9 @@
         }
         .Pos_Button_Center_anim
         {
-            position: absolute;
-            left: 650px;
-            top: 725px;
+            position: relative;
+            left: 520px;
+            top: 687px;
             background-color:#28283A;
             color: #ffffff;
         }
@@ -552,9 +558,9 @@
         }
         .retour_button
         {
-            position: absolute;
-            bottom: 730px;
-            left: 790px;
+            position: relative;
+            top: <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '-1000px';break;case 'animation LottiFile':echo '-1000px';break;case 'animation CSS':echo '-980px';break;}?>;
+            left: 640px;
         }
         .Pos_Button
         {
@@ -565,15 +571,15 @@
       /**style du menu */
         .message
         {
-            position:absolute;
-            bottom: <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '145px';break;case 'animation LottiFile':echo '145px';break;case 'animation CSS':echo '160px';break;}?>;
-            left: 350px;
+            position:relative;
+            bottom: <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '465px';break;case 'animation LottiFile':echo '465px';break;case 'animation CSS':echo '465px';break;}?>;
+            left: 300px;
         }        
         .position_menu_0
         {
             position: absolute;
             left: 385px;
-            top: 60px;
+            top: 100px;
             animation: 1s ease-out 0s 1 slideInFromLeft;
         }
         @keyframes slideInFromLeft 
@@ -589,20 +595,20 @@
         }
         .position_menu_1
         {
-            position: absolute;
-            left: 350px;
-            top: 20px;
+            position: relative;
+            left: 228px;
+            top: -70px;
         }
         #menu
         {
-            position: relative;
-            left: -330px;
+            position: fixed;
+            left: -285px;
+            top: 0px;
             padding: 10px;
             padding-top: 30px;
             padding-right: 60px;
             background-color: #FCC600;
             width: 800px;
-            height: 780px;
             border-radius: 0% 5% 5% 0%;
             transition: left 1s;
             z-index: 2;
@@ -611,14 +617,12 @@
         #menu_text
         {
             position: fixed;
-            left: 500px;
-            top: 30px;
             padding: 10px;
             background-color: #FCC600;
             width: 500px;
             height: 200px;
             border-radius: 20px;
-            z-index: 2;
+            z-index: 1;
         }
         
         .wrap
@@ -728,7 +732,7 @@
         }
         #menu_logo
         {
-            position: relative;
+            position: fixed;
             left: -1100px;
             padding: 10px;
             padding-top: 30px;
@@ -741,7 +745,7 @@
             z-index: 2;
             padding-left: 100px;
             border: 2px solid #28283a;
-            top: -550px;
+            bottom: 0px;
         }
         #button_menu_logo
         {
@@ -872,8 +876,6 @@
         ?>
         #BackContainer
         {
-            width: 1900px;
-            height: 1200px; 
             position: fixed; 
             left: -20px; 
             background-color:<?php
@@ -954,8 +956,9 @@
         {
             position:absolute;
             top: 10px;
-            left: -100px;
+            left: -10px;
             padding: 1%;
+            font-family: 'Times New Roman', Times, serif;
             animation:alternate infinite 2s info_tile;
         }
         @keyframes info_tile
@@ -999,14 +1002,37 @@
             align-items: center;
             padding-bottom: 5px;
         }
-
+      /**/
+      /**Responsive */
+        @media only screen and (max-width: 790px )
+        {
+            #tuto
+            {
+                display: none;
+            }
+        }
     </style>
 <!-- script à appliquer -->
     <script>
         
       /**Declaration variable
        *  */       
+       
+        var largeurScreen = window.innerWidth;
+        var longueurScreen = window.innerHeight;
         var s = document.getElementById('BackContainer').style; 
+        function myFunction()
+        {
+            largeurScreen = window.innerWidth;
+            longueurScreen = window.innerHeight;
+
+            s.width = (largeurScreen+100)+'px';
+            s.height = (longueurScreen+100)+'px';
+        }
+
+        window.resize = myFunction;
+        
+        myFunction();
         var backContainer = document.getElementById('BackContainer');
         var player = document.getElementById('svgContainer');
         var menu = document.getElementById('menu');
@@ -1018,7 +1044,8 @@
         }
         ?>
 
-        document.getElementById('menu_logo').style.left="<?php if (get_option('menu_position')=='0'){echo '-1100px';}else{if ($activeMenuLogo==true){ if(get_option('logo_isVivible')==''){echo '-980px';}else{echo '-340px';}}else{echo '-1100px';} } ?>";
+        menu2.style.left="<?php if (get_option('menu_position')=='0'){echo '-1100px';}else{if ($activeMenuLogo==true){ if(get_option('logo_isVivible')==''){echo '-950px';}else{echo '-300px';}}else{echo '-1100px';} } ?>";
+        <?php if ($activeMenuLogo!=true){echo 'menu.style.overflow = "hidden scroll";';} ?>
       /** width et heigth #animation et #logo */      
         animation.width='<?php
                 if(get_option('type_animation')=='animation GIF')
@@ -1029,7 +1056,7 @@
                     }
                     else
                     {
-                        echo get_option('gif_width').'px';
+                        echo get_option('gif_width').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation LottiFile')
@@ -1040,19 +1067,12 @@
                     }
                     else
                     {
-                        echo get_option('lotti_width').'px';
+                        echo get_option('lotti_width').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation CSS')
-                {      
-                    if (get_option('css_width')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('css_width').'px';
-                    }
+                {    
+                    echo '400px';
                 }
             ?> ';
         animation.height='<?php
@@ -1064,7 +1084,7 @@
                     }
                     else
                     {
-                        echo get_option('gif_height').'px';
+                        echo get_option('gif_height').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation LottiFile')
@@ -1075,32 +1095,28 @@
                     }
                     else
                     {
-                        echo get_option('lotti_height').'px';
+                        echo get_option('lotti_height').'%';
                     }
                 }
                 elseif(get_option('type_animation')=='animation CSS')
                 {      
-                    if (get_option('css_height')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('css_height').'px';
-                    }
+                    
+                    echo '400px';
                 }
             ?> ';
         
         
         <?php if (get_option('logo_isVivible')=='1') 
         {?>
-            logo.width='<?php if (get_option('logo_width')==''){echo '400px';}else{ echo get_option('logo_width').'px';}?>';
-            logo.height='<?php if (get_option('logo_height')==''){echo '400px';}else{ echo get_option('logo_height').'px';}?>';
+            logo.width='<?php if (get_option('logo_width')==''){echo '400px';}else{ echo get_option('logo_width').'%';}?>';
+            logo.height='<?php if (get_option('logo_height')==''){echo '400px';}else{ echo get_option('logo_height').'%';}?>';
            <?php
         }
         ?>
       /** */
-        document.getElementById('menu').style.left="<?php if (get_option('menu_position')=='0'){echo '-330px';}else{if ($activeMenuLogo==true){echo '-970px';}else{echo '-330px';} } ?>";
+        menu.style.left="<?php if (get_option('menu_position')=='0'){echo '-285px';}else{if ($activeMenuLogo==true){echo '-870px';}else{echo '-285px';} } ?>";
+        menu.style.height = longueurScreen+'px';
+        
       /**Script drag and drop animation */
         
         var obj = document.getElementById('animation');
@@ -1108,11 +1124,11 @@
         var objPosLeft= document.getElementById('objLeft');
         obj.onmousedown = function(event) 
         {            
-            if(menu2.style.left=="-340px")
+            if(menu2.style.left=="-300px")
             {                
                 onclick_button_menu_logo();
             }
-            if(menu.style.left=="-330px")
+            if(menu.style.left=="-285px")
             {                
                 onclick_button();
             }
@@ -1127,10 +1143,17 @@
           // Prenant en compte les changements initiaux
             function moveAt(pageX, pageY) 
             {
+                
+                largeurScreen = window.innerWidth;
+                longueurScreen = window.innerHeight;
+                let long = ((pageX - shiftX)*100)/largeurScreen;
+                let larg = ((pageY - shiftY)*100)/longueurScreen;
+                
                 obj.style.left = pageX - shiftX + 'px';
                 obj.style.top = pageY - shiftY + 'px';
-                objPosLeft.value = obj.style.left;
-                objPosTop.value=obj.style.top;
+                
+                objPosLeft.value = long+'%';
+                objPosTop.value= larg+'%';
                 
             }
 
@@ -1166,11 +1189,11 @@
         var logoPosLeft= document.getElementById('logoLeft');
         logo.onmousedown = function(event) 
         {
-            if(menu2.style.left=="-340px")
+            if(menu2.style.left=="-300px")
             {                
                 onclick_button_menu_logo();
             }
-            if(menu.style.left=="-330px")
+            if(menu.style.left=="-285px")
             {                
                 onclick_button();
             }
@@ -1188,12 +1211,17 @@
           // Prenant en compte les changements initiaux
             function moveAt(pageX, pageY) 
             {
+                
+                largeurScreen = window.innerWidth;
+                longueurScreen = window.innerHeight;
+                let long = ((pageX - shiftX)*100)/largeurScreen;
+                let larg = ((pageY - shiftY)*100)/longueurScreen;
+
                 logo.style.left = pageX - shiftX + 'px';
                 logo.style.top = pageY - shiftY + 'px';
-                logo.style.width=logoWidth;
-                logo.style.height=logoHeight;
-                logoPosLeft.value = logo.style.left;
-                logoPosTop.value=logo.style.top;
+
+                logoPosLeft.value = long+'%';
+                logoPosTop.value=larg+'%';
                 
             }
 
@@ -1224,19 +1252,21 @@
 
     //
       /**Script drag and drop menu text */
-      <?php if (get_option('css_code_animation')=='css_animation_8') 
+        <?php if (get_option('css_code_animation')=='css_animation_8') 
         {?>
             
         var text = document.getElementById('menu_text');
+        text.style.right = '0px';
+        text.style.bottom = (longueurScreen/3 -200)+'px';
         var textPosTop = document.getElementById('menu_textTop');
         var textPosLeft= document.getElementById('menu_textLeft');
         text.onmousedown = function(event) 
         {
-            if(menu2.style.left=="-340px")
+            if(menu2.style.left=="-300px")
             {                
                 onclick_button_menu_logo();
             }
-            if(menu.style.left=="-330px")
+            if(menu.style.left=="-285px")
             {                
                 onclick_button();
             }
@@ -1268,7 +1298,7 @@
           // dépose le text, enlève les gestionnaires d’évènements dont on a pas besoin
             text.onmouseup = function() 
             {
-                text.style.zIndex='1000';
+                text.style.zIndex='1';
                 document.removeEventListener('mousemove', onMouseMove);
                 text.onmouseup = null;
             };
@@ -1320,7 +1350,7 @@
                 { 
                     if (get_option('gif_duree_animation')=='') 
                     {
-                        echo 2000;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -1333,7 +1363,7 @@
                 {  
                     if (get_option('lotti_duree_animation')=='') 
                     {
-                        echo 2000;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -1345,7 +1375,7 @@
                 {    
                     if (get_option('css_duree_animation')=='') 
                     {
-                        echo 2000;
+                        echo 3000;
                     } 
                     else 
                     {
