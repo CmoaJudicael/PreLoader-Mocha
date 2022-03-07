@@ -27,7 +27,7 @@
         transition: none;
         <?php if (get_option('size_anim_8')==''){ echo 'font-size : 10px;';}else{ echo 'font-size : '.get_option( 'size_anim_8' ).'px;'; } ?>
         <?php if (get_option('css_couleur_animation_3')==''){ echo 'color : #000000;';}else{ echo 'color : #'.get_option('css_couleur_animation_3').';'; } ?>
-        <?php if (get_option('css_couleur_animation_2')==''){ echo 'background-color : #000000;';}else{ echo 'background-color : #'.get_option('css_couleur_animation_2').';'; } ?>
+        <?php if (get_option('css_couleur_animation_2')==''){}else{ echo 'background-color : #'.get_option('css_couleur_animation_2').';'; } ?>
     }
     @keyframes clignoter 
     {
@@ -42,7 +42,7 @@
         justify-content: center;
         align-items : center;
         <?php if (get_option('css_couleur_animation')==''){ echo 'color : #000000;';}else{ echo 'color : #'.get_option('css_couleur_animation').';'; } ?>
-        <?php if (get_option('css_couleur_animation_2')==''){ echo 'background-color : #000000;';}else{ echo 'background-color : #'.get_option('css_couleur_animation_2').';'; } ?>
+        <?php if (get_option('css_couleur_animation_2')==''){ }else{ echo 'background-color : #'.get_option('css_couleur_animation_2').';'; } ?>
 
     }
 

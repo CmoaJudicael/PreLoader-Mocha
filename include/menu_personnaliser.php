@@ -1,12 +1,12 @@
 <div class="wrap" id="fresh">
 <!--animation du menu-->
     <script>
-        function onclick_button()
+        function onclick_button_menu()
         {
             
-            if(menu.style.left=="-285px")
+            if(menu.style.left=="-330px")
             {
-                menu.style.left="-870px";
+                menu.style.left="-930px";
                 menu.style.overflow = "hidden";
                 menu.scrollTop = 0;
                 document.getElementById('button_content_menu').innerText=">";
@@ -14,13 +14,13 @@
             }
             else
             {                
-                menu.style.left="-285px";
+                menu.style.left="-330px";
                 menu.style.overflow = "hidden scroll";
                 document.getElementById('button_content_menu').innerText="<";
             }
-            if(menu2.style.left=="-300px")
+            if(menu2.style.left=="-350px")
             {
-                menu2.style.left="-950px";
+                menu2.style.left="-970px";
                 document.getElementById('button_content_logo').innerText=">";
 
             }
@@ -29,18 +29,18 @@
         function onclick_button_menu_logo()
         {
             
-            if(menu2.style.left=="-300px")
+            if(menu2.style.left=="-350px")
             {
-                menu2.style.left="-950px";
+                menu2.style.left="-970px";
                 document.getElementById('button_content_logo').innerText=">";
 
             }
             else
             {                
-                menu2.style.left="-300px";
+                menu2.style.left="-350px";
                 document.getElementById('button_content_logo').innerText="<";
             }
-            if(menu.style.left=="-285px")
+            if(menu.style.left=="-330px")
             {
                 menu.style.left="-930px";
                 menu.style.overflow = "hidden";
@@ -101,13 +101,6 @@
                                      <img src="<?php echo $gif_animation_url;?>" alt="animation personalisé" width="100%" height="100%"></img>
                                      <?php
                                      break;
-                                case 'gif_animation_4':
-                                    $activeMenuLogo=true;       
-                                     $gif_animation_url= plugin_dir_url(__FILE__) . 'view/gif/animation_gif_4.gif';                                            
-                                     ?>                                    
-                                     <img src="<?php echo $gif_animation_url;?>" alt="animation personalisé" width="100%" height="100%"></img>
-                                     <?php
-                                     break;
                                 default:
                                     echo 'Configurez votre animation GIF';
                                     $activeMenuLogo=false; 
@@ -123,19 +116,19 @@
                         <div class="visual">
                             <?php
                                 $animation_selection= get_option( 'lotti_animation_selection' );
-                                switch ($animation_selection) 
+                                switch ($animation_selection)
                                 {
                                     case 'lotti_animation_0': 
                                        
                                        if(get_option( 'lotti_lien_animation' )=='')
                                        {
                                            echo 'Configurez votre animation lotti';
-                                           $activeMenuLogo=false;       
+                                           $activeMenuLogo=false;
                                        }
                                        else
                                        {
-                                            $activeMenuLogo=true;       
-                                            $lotti_animation_url=  get_option( 'lotti_lien_animation' );                               
+                                            $activeMenuLogo=true; 
+                                            $lotti_animation_url=  get_option( 'lotti_lien_animation');                               
                                        } 
                                         break;
                                     case 'lotti_animation_1':
@@ -148,11 +141,15 @@
                                         break;
                                     case 'lotti_animation_3':
                                         $activeMenuLogo=true;       
-                                        $lotti_animation_url= 'https://assets5.lottiefiles.com/packages/lf20_f6whimsf.json';
+                                        $lotti_animation_url= 'https://assets1.lottiefiles.com/packages/lf20_er9uet9r.json';
                                         break;
                                     case 'lotti_animation_4':
                                         $activeMenuLogo=true;       
                                         $lotti_animation_url= 'https://assets1.lottiefiles.com/packages/lf20_kxsgasus.json';
+                                        break;
+                                    case 'lotti_animation_5':
+                                        $activeMenuLogo=true;       
+                                        $lotti_animation_url= 'https://assets1.lottiefiles.com/packages/lf20_yx2u7eke.json';
                                         break;
                                     default:
                                         echo 'Configurez votre animation lotti';
@@ -227,7 +224,7 @@
                 {
                     if(get_option('logo_url')!='')
                     {?>
-                        <img  src="<?php echo get_option('logo_url');?>" alt="image du logo" style="width: 100%; height: 100%">
+                        <img id="img_logo" src="<?php echo get_option('logo_url');?>" alt="image du logo" style="width: 100%; height: 100%">
                     <?php
                     }
                     else
@@ -243,17 +240,10 @@
 
 <!-- cadre du menu -->
     <div id="menu">
-        <button id="button" class="hand_Cursor" onclick="onclick_button()">
+        <button id="button" class="hand_Cursor" onclick="onclick_button_menu()">
             <div class="button_content" id="button_content_menu"><?php if (get_option('menu_position')=='0'){echo '<';}else{if ($activeMenuLogo==true){echo '>';}else{echo '<';} } ?></div>
         </button>
-        <?php
-            if (get_option('menu_position')=='1')
-            {
-                echo '<button type="button" id="button_centrer" class="Pos_Button_Center_anim typo hand_Cursor" onclick="centrer(\'animation\')">
-                <div class="button_content_center">CENTRER VOTRE ANIMATION</div>
-            </button>';
-            }
-        ?>
+        
         <?php
             $menu_pos = get_option( 'menu_position' );
             switch ($menu_pos) 
@@ -266,10 +256,18 @@
                     settings_fields( 'Mocha_Plugin_Settings' );
                     do_settings_sections( 'Mocha_Prod_Preloader_Type_page' );
                     do_settings_sections( 'Mocha_Prod_Preloader_menu_1_page' );
-                    ?><p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="DEFINIR ANIMATION" style="background-color: #28283a;"></p>
+                    ?><p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary zIndex-30" value="DEFINIR ANIMATION" style="background-color: #28283a;"></p>
                     <?php echo '</form></div>';
                     break;
                 case '1':
+                  //retour
+                    echo '<div class="typo bg_Yellow">';                
+                    echo '<form action="options.php" method="POST">';
+                    settings_fields( 'Mocha_Plugin_Settings' ); 
+                    do_settings_sections( 'Mocha_Prod_Preloader_menu_0_page' );
+                    ?><p class="submit flexD retour_button"><input type="submit" name="submit" id="submit" class="button button-primary zIndex-30" value="RETOUR" style="background-color: #28283a;"></p>
+                    <?php
+                    echo '</form></div>';
                   //menu de personnalisation
                     if(get_option('type_animation')=='animation GIF')
                     {                    
@@ -289,13 +287,7 @@
                         <?php
                     }
                     echo '</form>';
-                    echo '<div class="typo bg_Yellow">';                
-                    echo '<form action="options.php" method="POST">';
-                    settings_fields( 'Mocha_Plugin_Settings' ); 
-                    do_settings_sections( 'Mocha_Prod_Preloader_menu_0_page' );
-                    ?><p class="submit retour_button"><input type="submit" name="submit" id="submit" class="button button-primary" value="RETOUR" style="background-color: #28283a;"></p>
-                    <?php
-                    echo '</form></div>';
+                    
                     break;
                 default:
                   // choix du type d'animation-->   
@@ -309,13 +301,6 @@
                     break;
             }
 
-            if (get_option('type_animation')!='')
-            {
-                if ($activeMenuLogo==false)
-                {
-                    echo '<p class="message typo">N\'oubliez pas de sauvegarder. Vous pourrez ensuite ajouter votre logo !</p>';
-                }
-            }
         ?>       
         
         
@@ -340,7 +325,7 @@
     ?>
     <div id="menu_logo">
         <button id="button_menu_logo" onclick="onclick_button_menu_logo()" >
-            <div class="button_content" id="button_content_logo"><?php if (get_option('menu_position')=='0'){echo '>';}else{if($activeMenuLogo){ if(get_option('logo_isVivible')==''){echo '>';}else{echo '<';}}else{echo '>';}} ?></div>
+            <div class="button_content" id="button_content_logo"><?php if (get_option('menu_position')=='0'){echo '>';}else{if($activeMenuLogo){ if(get_option('logo_isVivible')==''){echo '<';}else{echo '<';}}else{echo '>';}} ?></div>
         </button>
         <?php
             if (get_option('menu_position')=='1')
@@ -363,6 +348,7 @@
 
 
         ?>
+        <p id="save_txt">N'oubliez pas de sauvegarder pour enregistrer vos réglages et prévisualiser, avant de mettre en ligne. </p>
 
     </div>
 
@@ -496,6 +482,18 @@
             color: #28283A;
         }
       /**style généraux */
+        .zIndex-30
+        {
+            z-index: 30;
+        }
+        .flexD
+        {
+            display: flex;
+        }
+        .flex-just-evenly
+        {
+            justify-content: space-evenly;
+        }
         .hand_Cursor
         {
             cursor: pointer;
@@ -528,39 +526,17 @@
             display:flex;
             z-index: 10;
         }
-        #button_centrer
-        {
-            width: 250px;
-            height: 30px;
-            border-radius:4px;
-            font-weight: bolder;
-            font-size: 13px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        .Pos_Button_Center_anim
-        {
-            position: relative;
-            left: 520px;
-            top: 687px;
-            background-color:#28283A;
-            color: #ffffff;
-        }
         .Pos_Button_Center_logo
         {
-            position: absolute;
-            left: 650px;
-            top: 403px;
+            position: relative;
+            left: 550px;
+            top: 253px;
             background-color:#fff;
             color: #28283A;
         }
         .retour_button
         {
-            position: relative;
-            top: <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '-1000px';break;case 'animation LottiFile':echo '-1000px';break;case 'animation CSS':echo '-980px';break;}?>;
-            left: 640px;
+            justify-content: end;
         }
         .Pos_Button
         {
@@ -571,9 +547,8 @@
       /**style du menu */
         .message
         {
-            position:relative;
-            bottom: <?php $variable=get_option('type_animation');switch ($variable) {case 'animation GIF':echo '465px';break;case 'animation LottiFile':echo '465px';break;case 'animation CSS':echo '465px';break;}?>;
-            left: 300px;
+            width: 90%;
+            padding: 0% 5%;
         }        
         .position_menu_0
         {
@@ -596,13 +571,14 @@
         .position_menu_1
         {
             position: relative;
-            left: 228px;
-            top: -70px;
+            left: 230px;
+            width: 75%;
+            top: -120px;
         }
         #menu
         {
-            position: fixed;
-            left: -285px;
+            position: relative;
+            left: -340px;
             top: 0px;
             padding: 10px;
             padding-top: 30px;
@@ -634,6 +610,14 @@
             position: relative;
         }
       /**menu logo */
+            #save_txt
+            {
+                position: relative;
+                top: 265px;
+                left: 250px;
+                color: #ffffff;
+                width: 70%;
+            }
         /* The switch - the box around the slider */
             .switch 
             {
@@ -732,7 +716,7 @@
         }
         #menu_logo
         {
-            position: fixed;
+            position: relative;
             left: -1100px;
             padding: 10px;
             padding-top: 30px;
@@ -745,7 +729,7 @@
             z-index: 2;
             padding-left: 100px;
             border: 2px solid #28283a;
-            bottom: 0px;
+            top: -515px;
         }
         #button_menu_logo
         {
@@ -776,6 +760,44 @@
             display:flex;
             justify-content: center;
             align-self:center;
+            <?php
+                if(get_option('type_animation')=='animation GIF')
+                { 
+                    if (get_option('gif_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {
+                        echo 'transform: scale('.get_option('gif_size').');';
+                    }
+                    
+                    
+                }
+                elseif(get_option('type_animation')=='animation LottiFile')
+                {     
+                    if (get_option('lotti_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {
+                        echo 'transform: scale('.get_option('lotti_size').');';
+                    }
+                    
+                }
+                elseif(get_option('type_animation')=='animation CSS')
+                {        
+                    if (get_option('css_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {  
+                        echo 'transform: scale('.get_option('css_size').');';
+                    }
+                }    
+                ?>
         }
         #animation
         {
@@ -783,6 +805,7 @@
             display:flex;
             justify-content: center;
             position: fixed;
+            
             top: <?php
                 if(get_option('type_animation')=='animation GIF')
                 { 
@@ -821,6 +844,7 @@
                     }
                 }    
                 ?>;
+            
             left:<?php
                 if(get_option('type_animation')=='animation GIF')
                 { 
@@ -864,11 +888,13 @@
                 #animation:hover
                 {            
                     border: #28283A 4px dashed;
+                    margin: -4px;
                     
                 }
-                #logo:hover
+                #img_logo:hover
                 {            
                     border: #28283A 4px dashed;
+                    margin: -4px;
             
                 }
                 <?php
@@ -902,8 +928,11 @@
             position: fixed;
             top: <?php if (get_option('logo_top')==''){echo '50%';}else{echo get_option('logo_top');} ?>;
             left: <?php if (get_option('logo_left')==''){echo '75%';}else{echo get_option('logo_left');} ?>;
-            transform: scale(<?php if(get_option('logo_scale'=='')){echo '1';}else{echo get_option('logo_scale');} ?>);
             z-index: 1000;
+        }
+        #img_logo
+        {
+            transform: scale(<?php if(get_option('logo_scale'=='')){echo '1';}else{echo get_option('logo_scale');} ?>);
         }
       /**style tuto */
         #tuto_close
@@ -1006,10 +1035,6 @@
       /**Responsive */
         @media only screen and (max-width: 790px )
         {
-            #tuto
-            {
-                display: none;
-            }
         }
     </style>
 <!-- script à appliquer -->
@@ -1021,6 +1046,19 @@
         var largeurScreen = window.innerWidth;
         var longueurScreen = window.innerHeight;
         var s = document.getElementById('BackContainer').style; 
+        var backContainer = document.getElementById('BackContainer');
+        var player = document.getElementById('svgContainer');
+        var menu = document.getElementById('menu');
+        var menu2 = document.getElementById('menu_logo');
+        var animation = document.getElementById('animation').style;
+        <?php if (get_option('logo_isVivible')=='1') 
+        {
+            echo 'var logo = document.getElementById(\'logo\').style';
+        }
+        ?>
+
+      
+       /* resize screen (!!!) */
         function myFunction()
         {
             largeurScreen = window.innerWidth;
@@ -1033,90 +1071,33 @@
         window.resize = myFunction;
         
         myFunction();
-        var backContainer = document.getElementById('BackContainer');
-        var player = document.getElementById('svgContainer');
-        var menu = document.getElementById('menu');
-        var menu2 = document.getElementById('menu_logo');
-        var animation = document.getElementById('animation').style;
-        <?php if (get_option('logo_isVivible')=='1') 
-        {
-            echo 'var logo = document.getElementById(\'logo\').style';
-        }
-        ?>
-
-        menu2.style.left="<?php if (get_option('menu_position')=='0'){echo '-1100px';}else{if ($activeMenuLogo==true){ if(get_option('logo_isVivible')==''){echo '-950px';}else{echo '-300px';}}else{echo '-1100px';} } ?>";
+        
+      // mise en place position des menus
+        menu2.style.left="<?php if (get_option('menu_position')=='0'){echo '-1100px';}else{if ($activeMenuLogo==true){ if(get_option('logo_isVivible')==''){echo '-350px';}else{echo '-350px';}}else{echo '-1100px';} } ?>";
+        
         <?php if ($activeMenuLogo!=true){echo 'menu.style.overflow = "hidden scroll";';} ?>
+      
+        menu.style.left="<?php if (get_option('menu_position')=='0'){echo '-330px';}else{if ($activeMenuLogo==true){echo '-930px';}else{echo '-330px';} } ?>";
+        longueurScreen = window.innerHeight;
+        menu.style.height = longueurScreen+'px';
       /** width et heigth #animation et #logo */      
-        animation.width='<?php
-                if(get_option('type_animation')=='animation GIF')
-                { 
-                    if (get_option('gif_width')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('gif_width').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation LottiFile')
-                {      
-                    if (get_option('lotti_width')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('lotti_width').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation CSS')
-                {    
-                    echo '400px';
-                }
-            ?> ';
-        animation.height='<?php
-                if(get_option('type_animation')=='animation GIF')
-                { 
-                    if (get_option('gif_height')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('gif_height').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation LottiFile')
-                {      
-                    if (get_option('lotti_height')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('lotti_height').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation CSS')
-                {      
-                    
-                    echo '400px';
-                }
-            ?> ';
+        
+        largeurScreen =(window.innerWidth*20)/100;
+        longueurScreen = (window.innerHeight*20)/100;
+        animation.width=largeurScreen+'px';
+        animation.height=longueurScreen+'px';
         
         
         <?php if (get_option('logo_isVivible')=='1') 
         {?>
-            logo.width='<?php if (get_option('logo_width')==''){echo '400px';}else{ echo get_option('logo_width').'%';}?>';
-            logo.height='<?php if (get_option('logo_height')==''){echo '400px';}else{ echo get_option('logo_height').'%';}?>';
+            largeurScreen =(window.innerWidth*20)/100;
+            longueurScreen = (window.innerHeight*20)/100;
+            logo.width=largeurScreen+'px';
+            logo.height=longueurScreen+'px';
            <?php
         }
         ?>
       /** */
-        menu.style.left="<?php if (get_option('menu_position')=='0'){echo '-285px';}else{if ($activeMenuLogo==true){echo '-870px';}else{echo '-285px';} } ?>";
-        menu.style.height = longueurScreen+'px';
-        
       /**Script drag and drop animation */
         
         var obj = document.getElementById('animation');
@@ -1130,7 +1111,7 @@
             }
             if(menu.style.left=="-285px")
             {                
-                onclick_button();
+                onclick_button_menu();
             }
             let shiftX = event.clientX - obj.getBoundingClientRect().left;
             let shiftY = event.clientY - obj.getBoundingClientRect().top;
@@ -1195,12 +1176,10 @@
             }
             if(menu.style.left=="-285px")
             {                
-                onclick_button();
+                onclick_button_menu();
             }
             let shiftX = event.clientX - logo.getBoundingClientRect().left;
             let shiftY = event.clientY - logo.getBoundingClientRect().top;
-            let logoWidth = '<?php if (get_option('logo_width')==''){echo '400px';}else{ echo get_option('logo_width').'px';}?>';
-            let logoHeight = '<?php if (get_option('logo_height')==''){echo '400px';}else{ echo get_option('logo_height').'px';}?>';
 
             logo.style.position = 'fixed';
             logo.style.zIndex='9999';
@@ -1268,7 +1247,7 @@
             }
             if(menu.style.left=="-285px")
             {                
-                onclick_button();
+                onclick_button_menu();
             }
             let shiftX = event.clientX - text.getBoundingClientRect().left;
             let shiftY = event.clientY - text.getBoundingClientRect().top;
@@ -1395,6 +1374,7 @@
                 s.opacity-=.1
                 if (s.opacity<0) 
                 {
+                    myFunction();
                     setTimeout("timerFade()", 1000); 
                 }
                 else 

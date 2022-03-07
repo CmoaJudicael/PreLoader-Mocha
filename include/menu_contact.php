@@ -2,7 +2,7 @@
   
 <!-- header -->
   <header>    
-      <h1 id="_title" class="inline">AIDES ET CONTACT</h1>   
+      <h1 id="_title" class="inline typo_Mocha">AIDES ET CONTACT</h1>   
   </header>
 <!-- barre nav -->
   <nav id="barre_nav">
@@ -23,7 +23,7 @@
         <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
 <!-- article PREMIER PAS -->
   <article id='premier_pas' class="typo bordure">
-    <h1>PREMIER PAS</h1>
+    <h1>PREMIER PAS <span style="font-weight:normal;">: Tout commence ici !</span></h1>
     <div class='content_article flexB'>
       <section>
         <p>Tout commence ici <br> cliquez sur le bouton "COMMENCER" de la page d'accueil </p>
@@ -41,12 +41,12 @@
     <div class='content_article flexB'>
       <section class="flexB">
         <div>
-          <p>A cet étape vous pourrez choisir le type d'animation que vous souhaitez parmis trois type différent</p>
+          <p>À cette étape, vous pouvez choisir le type d'animation que vous souhaitez parmi trois formats différents. Mais alors, comment faire votre choix ?</p>
           <br>
           <ul>
-            <li>Animation GIF <br><p>Choisissez une animation depuis un fichier GIF</p> </li><br>
-            <li>Animation LottieFile <br><p>Beaucoup moins lourd, importez votre animation LottieFile</p></li><br>
-            <li>Animation CSS <br><p>Choisissez votre animation CSS parmis notre selection d'animation</p></li>
+            <li><b>Animation GIF</b><br><p>Le GIF peut être conçu par vos soins, via un logiciel d’animation ou encore via des outils en ligne tel que GIFFY. Il reste cependant le format le moins optimisé pour le chargement de votre site. En effet il est primordial de faire attention au poids de votre GIF, nous recommandons 200 ko maximum !</p> </li><br>
+            <li><b>Animation Lottiefile</b> <br><p>L’animation LottieFile est beaucoup moins lourde qu’un Gif puisqu’elle est conçue en code, maximum 100 Ko. Vous pouvez la créer vous-même ou en sélectionner sur des sites spécialisés. Pour en savoir plus, regardez notre rubrique d’aide « configurer une animation LottieFile ».</p></li><br>
+            <li><b>Animation CSS</b> <br><p>L’animation en CSS est la plus optimisée pour le chargement, avec un poids réduit à maximum 10 Ko. L’inconvénient : vous ne pourrez intégrer votre propre code. Nous avons sélectionné une série d’animation CSS à choisir parmi notre sélection et à personnaliser en terme de couleur ! </p></li>
           </ul>
         </div>
         <img class="img_tuto img_1" src="<?php echo plugin_dir_url(__FILE__).'img/choix_animation.png'?>" alt="image du tuto demarrage">
@@ -62,14 +62,13 @@
     <div class='content_article flexB'>
       <section class="flexB">
         <div>
-          <p><h2>Voici le menu dédié à la configuration de votre animation gif</h2></p>
-          <ul>vous pourrez configurer les options suivantes :
-            <li><span class="underline">Choix du GIF :</span> <p>vous pouvez choisir de paramétrer un gif personnalisé ou bien de sélectionner un gif pré enregistré</p></li>
-            <li><span class="underline">GIF URL (media) : </span> <p>Insésez ici l'URL de votre gif personalisé</p></span></li>
-            <li><span class="underline">Background-color : #</span> <p>vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #</p></li>
-            <li><span class="underline">Width (largeur) : px</span> <p>vous pouvez choisir la largeur de votre animation en pixel. L'animation ne peut cependant pas exceder la grandeur naturel de votre gif personnaliser</p></li>
-            <li><span class="underline">Height (hauteur) : px</span> <p>vous pouvez choisir la hauteur de votre animation en pixel. L'animation ne peut cependant pas exceder la grandeur naturel de votre gif personnaliser</p></li>
-            <li><span class="underline">Duree animation : s</span> <p>vous pouvez choisir la durée minimal de votre animation en seconde</p></li>
+          <p><h2>Découvrez chaque réglage de configuration :</h2></p>
+          <ul>
+            <li><span class="underline">Choix du GIF :</span> <p>Vous pouvez choisir de sélectionner un gif pré-enregistré dans notre sélection ou intégrer un gif personnalisé. <br> Pensez à sauvegarder pour prévisualiser chaque animation. </p></li>
+            <li><span class="underline">GIF URL (media) : </span> <p> Insérez ici l'URL de votre gif, à récupérer dans votre bibliothèque de média après l’avoir téléversé (voir tutoriel). Vous pouvez aussi utiliser des sites spécialisés tels que GIPHY…  </p></span></li>
+            <li><span class="underline">Background-color : #</span> <p>Vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #.</p></li>
+            <li><span class="underline">Duree animation : s</span> <p>Vous pouvez choisir la durée minimale de votre animation en seconde.</p></li>
+            <li><span class="underline">Size: </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimé en selon un facteur (exemple : 1.2).</p></li>
           </ul>
 
         </div>
@@ -91,14 +90,13 @@
     <div class='content_article flexB'>
       <section class="flexB">
         <div>
-          <p><h2>Voici le menu dédié à la configuration de votre animation LottieFile</h2></p>
-          <ul>vous pourrez configurer les options suivantes :
-            <li><span class="underline">Choix du Lottie :</span> <p>vous pouvez choisir de paramétrer une animation Lotti personnalisé ou bien d'en sélectionner parmis nos animation pré-enregistré</p></li>
-            <li><span class="underline">Lotti URL (media) : </span> <p>Insésez ici l'URL de votre animation Lotti personalisé</p></span></li>
-            <li><span class="underline">Background-color : #</span> <p>vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #</p></li>
-            <li><span class="underline">Width (largeur) : px</span> <p>vous pouvez choisir la largeur de votre animation en pixel.</p></li>
-            <li><span class="underline">Height (hauteur) : px</span> <p>vous pouvez choisir la hauteur de votre animation en pixel.</p></li>
-            <li><span class="underline">Duree animation : s</span> <p>vous pouvez choisir la durée minimal de votre animation en seconde</p></li>
+          <p><h2>Découvrez chaque réglage de configuration : </h2></p>
+          <ul>
+            <li><span class="underline">Choix du Lottie :</span> <p>Vous pouvez choisir de sélectionner une de nos animations pré-enregistrées* ou intégrer une nouvelle animation LottieFile, soit créée par vos soins, soit sélectionnée et personnalisée en terme de couleur sur https://lottiefiles.com. Attention à prendre une animation gratuite ou payer une licence.</p></li>
+            <li><span class="underline">Lotti URL (media) : </span> <p>Insésez ici l'URL « assets » de votre animation Lottie personnalisée (voir tutoriel).</p></span></li>
+            <li><span class="underline">Background-color : #</span> <p>Vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #.</p></li>
+            <li><span class="underline">Duree animation : s</span> <p>Vous pouvez choisir la durée minimale de votre animation en seconde.</p></li>
+            <li><span class="underline">Size : </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimé en selon un facteur (exemple : 1.2).</p></li>
           </ul>
 
         </div>
@@ -120,12 +118,13 @@
     <div class='content_article'>
       <section class="flexB">
         <div>
-          <p><h2>Voici le menu dédié à la configuration de votre animation css</h2></p>
-          <ul>vous pourrez configurer les options suivantes :
+          <p><h2>Découvrez chaque réglage de configuration : </h2></p>
+          <ul>
             <li><span class="underline">Choix du CSS :</span> <p>vous pouvez choisir de paramétrer un gif personnalisé ou bien de sélectionner un gif pré enregistré</p></li>
             <li><span class="underline">Background-color : #</span> <p>vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #</p></li>
             <li><span class="underline">Couleur animation : #</span> <p>vous pouvez choisir la couleur de l'aanimation, en code hexa. Ne saisissez que le code hexa sans le signe #, vous pouvez modifier trois couleurs dans l'animation</p></li>
-            <li><span class="underline">Duree animation : s</span> <p>vous pouvez choisir la durée minimal de votre animation en seconde</p></li>
+            <li><span class="underline">Duree animation : s</span> <p>vous pouvez choisir la durée minimale de votre animation en seconde</p></li>
+            <li><span class="underline">Size : </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimé en selon un facteur (exemple : 1.2).</p></li>
           </ul>
 
         </div>
@@ -197,186 +196,6 @@
       <a href="#up" class="lien">RETOUR EN HAUT</a>
       
     </footer>
-<!-- style -->
-  <style>
-  /**player */
-    .player
-    {
-      width: 100%;
-      height: 800px;
-      
-    }
-    
-  /**lien font */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500;700;900&family=Montserrat:wght@300;500;700;900&display=swap');
-    @font-face 
-    {    
-      font-family: Mochacode Font Regular;
-      src: url('<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'assets/font/MochacodeFont.otf'; ?>') format("opentype");
-    }
-  /**titres */
-    h1
-    {
-      background-color: #28283A;
-      font-family: Mochacode Font Regular;
-      color: #FCC600;
-    }
-    #_title
-    {
-      font-size: 40px;
-      padding: 5% 0%;
-    }
-  /**contenue article */
-    .display_signature
-    {
-      align-items: center;
-    }
-    #contact_mocha >div >div p,a,h3
-    {
-      margin: 10px;
-    }
-    h3
-    {
-      font-size: 30px;
-      color: #ffffff;
-    }
-    .flexB
-    {
-      display: flex;
-    }
-    .inline
-    {
-      display: inline-block;
-    }
-    .point
-    {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #FCC600;
-      margin: 0%;
-    }
-    article,h2,footer
-    {
-      margin: 5% 0%;
-      padding: 5% 2%;
-      font-family: 'Montserrat', sans-serif;
-      color: #FCC600;
-      
-    }
-    .bordure
-    {
-      border-radius: 30px;
-      border:2px #00a993 solid;
-    }
-    section
-    {
-      justify-content: space-around;
-      align-items: center;
-    }
-    section>*
-    {
-      margin: 2%;
-    }
-    .content_article
-    {
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
 
-    }
-    .typo
-    {
-      font-size: 15px;
-      color: #ffffff;
-    }
-    .underline
-    {
-      text-decoration: underline;
-    }
-  /**lien */
-    .lien,.lien_article
-    {
-      font-size: 15px;
-      color: #ffffff;
-      text-decoration: none;
-      transition: all 0.5s;
-    }
-    .lien:hover,.lien_article:hover
-    {
-      color:#28283A;
-      background-color: #FCC600;
-      transition: all 0.5s;
-    }
-    .call
-    {
-      width: 400px;
-      height: 100px;
-      justify-content: center;
-      align-items: center;
-    }
-  /**barre nav */
-    #barre_nav
-    {      
-      background-color: #FCC600;
-      margin-top: 30px;
-      height: 50px;
-      border-radius: 50px;
-      padding: 15px;
-    }
-    #barre_nav>ul
-    {
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      margin: 0px;
-    }
-    #barre_nav>ul>li
-    {
-      height: 100%;      
-    }
-    .lien_nav
-    {
-      width: 20%;
-      text-decoration: none;
-      display: table;
-      width: 100%;
-      height: 100%;
-      padding: 0px 10px;
-    }
-    .lien_nav>div:hover
-    {
-      background-color: #00a993;
-      border-radius: 20px;
-      color: #ffffff;
-      transition: all 0.5s;
-    }
-    .lien_nav>div
-    {
-      text-align: center;
-      font-size: 15px;
-      height: 100%;
-      color: #28283A;
-      vertical-align: middle;
-      display: table-cell;
-      transition: all 0.5s;
-    }
-  /**body */
-    body
-    {
-      background-color: #28283A;
-      color: #FCC600;
-    }
-  /**img */
-    .img_tuto
-    {
-      border: 5px #C6383F solid;
-      border-radius: 20px;
-    }
-
-
-        
-
-  </style>
+<link rel="stylesheet" href="<?php echo plugin_dir_url(__FILE__).'css/css_page_contact.css'?>">
 </div>

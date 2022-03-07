@@ -7,7 +7,7 @@ if (get_option('button_OnOff') == "on")
     <div class="mocha" id="preloader">
 
 <!-- cadre de l'animation -->
-    <div id="BackContainer">        
+    <div id="BackContainer">
         <div id="animation"  >
           <!-- Visualiseur -->
             <?php
@@ -56,13 +56,6 @@ if (get_option('button_OnOff') == "on")
                                      <img src="<?php echo $gif_animation_url;?>" alt="animation personalisé" width="100%" height="100%"></img>
                                      <?php
                                      break;
-                                case 'gif_animation_4':
-                                    $activeMenuLogo=true;       
-                                     $gif_animation_url= plugin_dir_url(__FILE__) . 'view/gif/animation_gif_4.gif';                                            
-                                     ?>                                    
-                                     <img src="<?php echo $gif_animation_url;?>" alt="animation personalisé" width="100%" height="100%"></img>
-                                     <?php
-                                     break;
                                 default:
                                     echo 'Configurez votre animation GIF';
                                     $activeMenuLogo=false; 
@@ -78,19 +71,19 @@ if (get_option('button_OnOff') == "on")
                         <div class="visual">
                             <?php
                                 $animation_selection= get_option( 'lotti_animation_selection' );
-                                switch ($animation_selection) 
+                                switch ($animation_selection)
                                 {
                                     case 'lotti_animation_0': 
                                        
                                        if(get_option( 'lotti_lien_animation' )=='')
                                        {
                                            echo 'Configurez votre animation lotti';
-                                           $activeMenuLogo=false;       
+                                           $activeMenuLogo=false;
                                        }
                                        else
                                        {
-                                            $activeMenuLogo=true;       
-                                            $lotti_animation_url=  get_option( 'lotti_lien_animation' );                               
+                                            $activeMenuLogo=true; 
+                                            $lotti_animation_url=  get_option( 'lotti_lien_animation');                               
                                        } 
                                         break;
                                     case 'lotti_animation_1':
@@ -103,11 +96,15 @@ if (get_option('button_OnOff') == "on")
                                         break;
                                     case 'lotti_animation_3':
                                         $activeMenuLogo=true;       
-                                        $lotti_animation_url= 'https://assets5.lottiefiles.com/packages/lf20_f6whimsf.json';
+                                        $lotti_animation_url= 'https://assets1.lottiefiles.com/packages/lf20_er9uet9r.json';
                                         break;
                                     case 'lotti_animation_4':
                                         $activeMenuLogo=true;       
                                         $lotti_animation_url= 'https://assets1.lottiefiles.com/packages/lf20_kxsgasus.json';
+                                        break;
+                                    case 'lotti_animation_5':
+                                        $activeMenuLogo=true;       
+                                        $lotti_animation_url= 'https://assets1.lottiefiles.com/packages/lf20_yx2u7eke.json';
                                         break;
                                     default:
                                         echo 'Configurez votre animation lotti';
@@ -162,6 +159,9 @@ if (get_option('button_OnOff') == "on")
                                     case 'css_animation_7':
                                         include 'view/css/css_animation_7.php';
                                         break;
+                                    case 'css_animation_8':
+                                        include 'view/css/css_animation_8.php';
+                                        break;
                                     }
                                 }
                         ?>
@@ -179,7 +179,7 @@ if (get_option('button_OnOff') == "on")
                 {
                     if(get_option('logo_url')!='')
                     {?>
-                        <img  src="<?php echo get_option('logo_url');?>" alt="image du logo" style="width: 100%; height: 100%">
+                        <img id="img_logo" src="<?php echo get_option('logo_url');?>" alt="image du logo" style="width: 100%; height: 100%">
                     <?php
                     }
                     else
@@ -191,12 +191,7 @@ if (get_option('button_OnOff') == "on")
             </div><?php
         }
         ?>
-    </div>
-
-
-
-    
-<!-- style à appliquer -->
+    </div><!-- style à appliquer -->
     <style> 
       /**style de l'animation */ 
         .visualiseur_animation
@@ -204,6 +199,44 @@ if (get_option('button_OnOff') == "on")
             display:flex;
             justify-content: center;
             align-self:center;
+            <?php
+                if(get_option('type_animation')=='animation GIF')
+                { 
+                    if (get_option('gif_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {
+                        echo 'transform: scale('.get_option('gif_size').');';
+                    }
+                    
+                    
+                }
+                elseif(get_option('type_animation')=='animation LottiFile')
+                {     
+                    if (get_option('lotti_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {
+                        echo 'transform: scale('.get_option('lotti_size').');';
+                    }
+                    
+                }
+                elseif(get_option('type_animation')=='animation CSS')
+                {        
+                    if (get_option('css_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {  
+                        echo 'transform: scale('.get_option('css_size').');';
+                    }
+                }    
+                ?>
         }
         #animation
         {
@@ -211,6 +244,7 @@ if (get_option('button_OnOff') == "on")
             display:flex;
             justify-content: center;
             position: fixed;
+            
             top: <?php
                 if(get_option('type_animation')=='animation GIF')
                 { 
@@ -249,6 +283,7 @@ if (get_option('button_OnOff') == "on")
                     }
                 }    
                 ?>;
+            
             left:<?php
                 if(get_option('type_animation')=='animation GIF')
                 { 
@@ -286,10 +321,26 @@ if (get_option('button_OnOff') == "on")
                 ?>;
             
         }
-        .mocha #BackContainer
+        <?php
+            if (get_option('menu_position')=='1') 
+            {?>
+                #animation:hover
+                {            
+                    border: #28283A 4px dashed;
+                    margin: -4px;
+                    
+                }
+                #img_logo:hover
+                {            
+                    border: #28283A 4px dashed;
+                    margin: -4px;
+            
+                }
+                <?php
+            }
+        ?>
+        #BackContainer
         {
-            width: 1900px;
-            height: 1200px; 
             position: fixed; 
             left: -20px; 
             background-color:<?php
@@ -307,9 +358,9 @@ if (get_option('button_OnOff') == "on")
                     echo get_option('css_background_color');
                 }    
                 ?>;
-            z-index: 9999;
 
         }
+
 
       /**style logo */
         #logo
@@ -339,7 +390,7 @@ if (get_option('button_OnOff') == "on")
         {
             s.width = (largeurScreen+100)+'px';
             s.height = (longueurScreen+100)+'px';
-}); 
+ }); 
         
         myFunction();
         var backContainer = document.getElementById('BackContainer');
@@ -410,8 +461,8 @@ if (get_option('button_OnOff') == "on")
             ?> ';
         <?php if (get_option('logo_isVivible')=='1') 
         {?>
-            logo.width='<?php if (get_option('logo_width')==''){echo '400px';}else{ echo get_option('logo_width').'px';}?>';
-            logo.height='<?php if (get_option('logo_height')==''){echo '400px';}else{ echo get_option('logo_height').'px';}?>';
+            logo.width='400px';
+            logo.height='400px';
            <?php
         }
         ?>
@@ -537,8 +588,8 @@ if (get_option('button_OnOff') == "on")
       
 
     </script>
-</div>
-<?php
+ </div>
+ <?php
 }
 
 ?>
