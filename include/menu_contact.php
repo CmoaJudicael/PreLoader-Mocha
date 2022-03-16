@@ -19,13 +19,12 @@
   </nav>    
 
 <!-- jsdelivr -->
-          
         <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
 <!-- article PREMIER PAS -->
   <article id='premier_pas' class="typo bordure">
     <h1>PREMIER PAS <span style="font-weight:normal;">: Tout commence ici !</span></h1>
-    <div class='content_article flexB'>
-      <section>
+    <div class='content_article flexB '>
+      <section class="flexB justify-arround"> 
         <p>Tout commence ici <br> cliquez sur le bouton "COMMENCER" de la page d'accueil </p>
         <img class="img_tuto img_1" src="<?php echo plugin_dir_url(__FILE__).'img/getting_start.png'?>" alt="image du tuto demarrage">
       </section>
@@ -39,7 +38,7 @@
   <article id='Choix_animation' class="typo bordure">
     <h1>CHOIX DE L'ANIMATION</h1>
     <div class='content_article flexB'>
-      <section class="flexB">
+      <section class="flexB justify-arround">
         <div>
           <p>À cette étape, vous pouvez choisir le type d'animation que vous souhaitez parmi trois formats différents. Mais alors, comment faire votre choix ?</p>
           <br>
@@ -60,7 +59,7 @@
   <article id='Configurer_animation_gif' class="typo bordure">
     <h1>CONFIGURER UNE ANIMATION GIF</h1>
     <div class='content_article flexB'>
-      <section class="flexB">
+      <section class="flexB justify-arround">
         <div>
           <p><h2>Découvrez chaque réglage de configuration :</h2></p>
           <ul>
@@ -88,7 +87,7 @@
   <article id='Configurer_animation_lotti' class="typo bordure">
     <h1>CONFIGURER UNE ANIMATION LOTTIEFILE</h1>
     <div class='content_article flexB'>
-      <section class="flexB">
+      <section class="flexB justify-arround">
         <div>
           <p><h2>Découvrez chaque réglage de configuration : </h2></p>
           <ul>
@@ -116,7 +115,7 @@
   <article id='Configurer_animation_css' class="typo bordure">
     <h1>CONFIGURER UNE ANIMATION CSS</h1>
     <div class='content_article'>
-      <section class="flexB">
+      <section class="flexB justify-arround">
         <div>
           <p><h2>Découvrez chaque réglage de configuration : </h2></p>
           <ul>
@@ -143,15 +142,13 @@
 <!-- article configurer logo -->
   <article id='Configurer_animation_logo' class="typo bordure">
     <h1>CONFIGURER VOTRE LOGO</h1>
-    <div class='content_article flexB'>
-      <section class="flexB">
+    <div class='content_article'>
+      <section class="flexB justify-arround">
         <div>
-          <p><h2>Voici le menu dédié à la configuration de votre Logo</h2></p>
-          <ul>vous pourrez configurer les options suivantes :
-            <li><span class="underline">Url de l'image du logo : </span> <p>Insésez ici l'URL de votre logo.</p></span></li>
+          <p><h2>Découvrez chaque réglage de configuration : </h2></p>
+          <ul>
+            <li><span class="underline">URL du logo (media) : </span> <p>Insérez ici l'URL de votre logotype, à récupérer dans votre bibliothèque de média après l’avoir téléversé (voir tutoriel).</p></span></li>
             <li><span class="underline">Scale : </span> <p>Vous pouvez choisir le scale de votre logo pour l'agrandir ou le rétrécir.</p></li>
-            <li><span class="underline">Width (largeur) : px</span> <p>vous pouvez choisir la largeur de votre animation en pixel. L'animation ne peut cependant pas exceder la grandeur naturel de votre gif personnaliser</p></li>
-            <li><span class="underline">Height (hauteur) : px</span> <p>vous pouvez choisir la hauteur de votre animation en pixel. L'animation ne peut cependant pas exceder la grandeur naturel de votre gif personnaliser.</p></li>
             <li><span class="underline">Visible</span> <p>vous pouvez choisir de ne pas utiliser de logo et de le rendre invsible.</p></li>
           </ul>
 

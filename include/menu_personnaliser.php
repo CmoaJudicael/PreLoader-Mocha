@@ -373,7 +373,7 @@
             
 
             </article>
-            <div id="INFO">I</div>
+            <div id="INFO">i</div>
         
         </div>
         <?php
@@ -533,6 +533,8 @@
             top: 253px;
             background-color:#fff;
             color: #28283A;
+            height: 30px;
+            z-index: 10;
         }
         .retour_button
         {
@@ -1059,18 +1061,36 @@
 
       
        /* resize screen (!!!) */
-        function myFunction()
+        function resizing()
         {
             largeurScreen = window.innerWidth;
             longueurScreen = window.innerHeight;
 
             s.width = (largeurScreen+100)+'px';
             s.height = (longueurScreen+100)+'px';
+            longueurScreen = window.innerHeight;
+            menu.style.height = longueurScreen+'px';
+
+          /** width et heigth #animation et #logo */      
+        
+            largeurScreen =(window.innerWidth*20)/100;
+            animation.width=largeurScreen+'px';
+            animation.height=largeurScreen+'px';
+        
+        
+            <?php if (get_option('logo_isVivible')=='1') 
+            {?>
+                largeurScreen =(window.innerWidth*20)/100;
+                logo.width=largeurScreen+'px';
+                logo.height=largeurScreen+'px';
+            <?php
+            }
+            ?>
         }
 
-        window.resize = myFunction;
+        window.onresize = resizing;
         
-        myFunction();
+        resizing();
         
       // mise en place position des menus
         menu2.style.left="<?php if (get_option('menu_position')=='0'){echo '-1100px';}else{if ($activeMenuLogo==true){ if(get_option('logo_isVivible')==''){echo '-350px';}else{echo '-350px';}}else{echo '-1100px';} } ?>";
@@ -1078,25 +1098,8 @@
         <?php if ($activeMenuLogo!=true){echo 'menu.style.overflow = "hidden scroll";';} ?>
       
         menu.style.left="<?php if (get_option('menu_position')=='0'){echo '-330px';}else{if ($activeMenuLogo==true){echo '-930px';}else{echo '-330px';} } ?>";
-        longueurScreen = window.innerHeight;
-        menu.style.height = longueurScreen+'px';
-      /** width et heigth #animation et #logo */      
         
-        largeurScreen =(window.innerWidth*20)/100;
-        longueurScreen = (window.innerHeight*20)/100;
-        animation.width=largeurScreen+'px';
-        animation.height=longueurScreen+'px';
-        
-        
-        <?php if (get_option('logo_isVivible')=='1') 
-        {?>
-            largeurScreen =(window.innerWidth*20)/100;
-            longueurScreen = (window.innerHeight*20)/100;
-            logo.width=largeurScreen+'px';
-            logo.height=longueurScreen+'px';
-           <?php
-        }
-        ?>
+      
       /** */
       /**Script drag and drop animation */
         
@@ -1105,11 +1108,11 @@
         var objPosLeft= document.getElementById('objLeft');
         obj.onmousedown = function(event) 
         {            
-            if(menu2.style.left=="-300px")
+            if(menu2.style.left=="-350px")
             {                
                 onclick_button_menu_logo();
             }
-            if(menu.style.left=="-285px")
+            if(menu.style.left=="-330px")
             {                
                 onclick_button_menu();
             }
@@ -1170,11 +1173,11 @@
         var logoPosLeft= document.getElementById('logoLeft');
         logo.onmousedown = function(event) 
         {
-            if(menu2.style.left=="-300px")
+            if(menu2.style.left=="-350px")
             {                
                 onclick_button_menu_logo();
             }
-            if(menu.style.left=="-285px")
+            if(menu.style.left=="-330px")
             {                
                 onclick_button_menu();
             }
@@ -1374,7 +1377,6 @@
                 s.opacity-=.1
                 if (s.opacity<0) 
                 {
-                    myFunction();
                     setTimeout("timerFade()", 1000); 
                 }
                 else 

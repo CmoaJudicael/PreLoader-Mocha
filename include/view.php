@@ -191,7 +191,8 @@ if (get_option('button_OnOff') == "on")
             </div><?php
         }
         ?>
-    </div><!-- style à appliquer -->
+    </div>
+<!-- style à appliquer -->
     <style> 
       /**style de l'animation */ 
         .visualiseur_animation
@@ -199,45 +200,7 @@ if (get_option('button_OnOff') == "on")
             display:flex;
             justify-content: center;
             align-self:center;
-            <?php
-                if(get_option('type_animation')=='animation GIF')
-                { 
-                    if (get_option('gif_size')=='') 
-                    {
-                        echo 'transform: scale(1);';
-                    } 
-                    else 
-                    {
-                        echo 'transform: scale('.get_option('gif_size').');';
-                    }
-                    
-                    
-                }
-                elseif(get_option('type_animation')=='animation LottiFile')
-                {     
-                    if (get_option('lotti_size')=='') 
-                    {
-                        echo 'transform: scale(1);';
-                    } 
-                    else 
-                    {
-                        echo 'transform: scale('.get_option('lotti_size').');';
-                    }
-                    
-                }
-                elseif(get_option('type_animation')=='animation CSS')
-                {        
-                    if (get_option('css_size')=='') 
-                    {
-                        echo 'transform: scale(1);';
-                    } 
-                    else 
-                    {  
-                        echo 'transform: scale('.get_option('css_size').');';
-                    }
-                }    
-                ?>
-        }
+             }
         #animation
         {
             
@@ -319,29 +282,51 @@ if (get_option('button_OnOff') == "on")
                     }  
                 }    
                 ?>;
-            
-        }
-        <?php
-            if (get_option('menu_position')=='1') 
-            {?>
-                #animation:hover
-                {            
-                    border: #28283A 4px dashed;
-                    margin: -4px;
+            <?php
+                if(get_option('type_animation')=='animation GIF')
+                { 
+                    if (get_option('gif_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {
+                        echo 'transform: scale('.get_option('gif_size').');';
+                    }
+                    
                     
                 }
-                #img_logo:hover
-                {            
-                    border: #28283A 4px dashed;
-                    margin: -4px;
-            
+                elseif(get_option('type_animation')=='animation LottiFile')
+                {     
+                    if (get_option('lotti_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {
+                        echo 'transform: scale('.get_option('lotti_size').');';
+                    }
+                    
                 }
-                <?php
-            }
-        ?>
+                elseif(get_option('type_animation')=='animation CSS')
+                {        
+                    if (get_option('css_size')=='') 
+                    {
+                        echo 'transform: scale(1);';
+                    } 
+                    else 
+                    {  
+                        echo 'transform: scale('.get_option('css_size').');';
+                    }
+                }    
+                ?>
+       
+        }
+        
         #BackContainer
         {
             position: fixed; 
+            z-index: 99999;
             left: -20px; 
             background-color:<?php
                 echo '#';
@@ -376,115 +361,69 @@ if (get_option('button_OnOff') == "on")
 <!-- script à appliquer -->
     <script>
         
-      /**Declaration variable
-       *  */       
-        var s = document.getElementById('BackContainer').style; 
+    /**Declaration variable */       
+         
+          var largeurScreen = window.innerWidth;
+          var longueurScreen = window.innerHeight;
+          var s = document.getElementById('BackContainer').style; 
+          var backContainer = document.getElementById('BackContainer');
+          var player = document.getElementById('svgContainer');
+          var animation = document.getElementById('animation').style;
+          <?php if (get_option('logo_isVivible')=='1') 
+          {
+              echo 'var logo = document.getElementById(\'logo\').style';
+          }
+          ?>
+  
         
-        function myFunction()
-        {
-            s.width = (largeurScreen+100)+'px';
-            s.height = (longueurScreen+100)+'px';
-        }
-
-        window.addEventListener('resize', function(event)
-        {
-            s.width = (largeurScreen+100)+'px';
-            s.height = (longueurScreen+100)+'px';
- }); 
-        
-        myFunction();
-        var backContainer = document.getElementById('BackContainer');
-        var player = document.getElementById('svgContainer');
-        var animation = document.getElementById('animation').style;
-        <?php if (get_option('logo_isVivible')=='1') 
-        {
-            echo 'var logo = document.getElementById(\'logo\').style';
-        }
-        ?>
-
-      /** width et heigth #animation et #logo */      
-        animation.width='<?php
-                if(get_option('type_animation')=='animation GIF')
-                { 
-                    if (get_option('gif_width')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('gif_width').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation LottiFile')
-                {      
-                    if (get_option('lotti_width')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('lotti_width').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation CSS')
-                {  
-                    echo '400px';
-                }
-            ?> ';
-        animation.height='<?php
-                if(get_option('type_animation')=='animation GIF')
-                { 
-                    if (get_option('gif_height')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('gif_height').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation LottiFile')
-                {      
-                    if (get_option('lotti_height')=='')
-                    {
-                        echo '400px';
-                    }
-                    else
-                    {
-                        echo get_option('lotti_height').'%';
-                    }
-                }
-                elseif(get_option('type_animation')=='animation CSS')
-                {
-                    echo '400px';
-                }
-            ?> ';
-        <?php if (get_option('logo_isVivible')=='1') 
-        {?>
-            logo.width='400px';
-            logo.height='400px';
-           <?php
-        }
-        ?>
-
-      /** */
-      
-   
-     /** script fade out
-       */
+    /* size screen */
+          function resizing()
+          {
+              largeurScreen = window.innerWidth;
+              longueurScreen = window.innerHeight;
+  
+              s.width = (largeurScreen+100)+'px';
+              s.height = (longueurScreen+100)+'px';
+              longueurScreen = window.innerHeight;
+  
+            /** width et heigth #animation et #logo */      
+          
+              largeurScreen =(window.innerWidth*20)/100;
+              animation.width=largeurScreen+'px';
+              animation.height=largeurScreen+'px';
+          
+          
+              <?php if (get_option('logo_isVivible')=='1')
+              {?>
+                  largeurScreen =(window.innerWidth*20)/100;
+                  logo.width=largeurScreen+'px';
+                  logo.height=largeurScreen+'px';
+              <?php
+              }
+              ?>
+          }
+  
+          window.onresize = resizing;
+          
+          resizing();
+          
+        /** */
+        //
+        //
+    /** script fade out */
       window.addEventListener("DOMContentLoaded", function(event) 
         {          
             date = new Date;
 			charg_aft = date.getTime();
             
             var loadTime = charg_aft-charg_bef;
-            
+            console.log('loadtime : '+loadTime);
             if (loadTime< <?php  
                 if(get_option('type_animation')=='animation GIF')
                 { 
                     if (get_option('gif_duree_animation')=='') 
                     {
-                        echo 0;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -497,7 +436,7 @@ if (get_option('button_OnOff') == "on")
                 {  
                     if (get_option('lotti_duree_animation')=='') 
                     {
-                        echo 0;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -509,7 +448,7 @@ if (get_option('button_OnOff') == "on")
                 {  
                     if (get_option('css_duree_animation')=='') 
                     {
-                        echo 0;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -524,7 +463,7 @@ if (get_option('button_OnOff') == "on")
                 { 
                     if (get_option('gif_duree_animation')=='') 
                     {
-                        echo 2000;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -537,7 +476,7 @@ if (get_option('button_OnOff') == "on")
                 {  
                     if (get_option('lotti_duree_animation')=='') 
                     {
-                        echo 2000;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -549,7 +488,7 @@ if (get_option('button_OnOff') == "on")
                 {    
                     if (get_option('css_duree_animation')=='') 
                     {
-                        echo 2000;
+                        echo 3000;
                     } 
                     else 
                     {
@@ -559,6 +498,7 @@ if (get_option('button_OnOff') == "on")
                 }  
 
               ?>) - loadTime;
+              
                setTimeout("fadeOut()", timePreloader);  
            } 
            else 
@@ -568,18 +508,26 @@ if (get_option('button_OnOff') == "on")
         });
         function fadeOut()
         {
-            var backContainer = document.getElementById('BackContainer');
-            var player = document.getElementById('svgContainer');
-            var fadeOut=10000;
-            var opacityFade=1;
-            var playerScale = 1;
+            
+            console.log('fonction fadeout');
 
             document.documentElement.scrollTop = 0;
-            var s = document.getElementById('BackContainer').style;
-            s.opacity = 1;
-            (function fade(){(s.opacity-=.1)<0?s.display="none":setTimeout(fade,60)})();
-            while (s.opacity<0)
+            fade();
+        }
+        function fade()
+        {
+            
+            
+            let styleOp = window.getComputedStyle(backContainer).getPropertyValue('opacity');
+            if(styleOp>0)
             {
+                styleOp-=0.01;
+                backContainer.style.opacity = styleOp;
+                setTimeout(fade,6);
+            }
+            else
+            {
+                s.display="none";
                 var body = document.body;
                 var remChild = document.getElementById('preloader');
                 var garbage = body.removeChild(remChild);
@@ -588,6 +536,8 @@ if (get_option('button_OnOff') == "on")
       
 
     </script>
+<!---->
+
  </div>
  <?php
 }
