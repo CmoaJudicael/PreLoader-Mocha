@@ -1377,7 +1377,6 @@
                 s.opacity-=.1
                 if (s.opacity<0) 
                 {
-                    resizing();
                     setTimeout("timerFade()", 1000); 
                 }
                 else 
