@@ -549,7 +549,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //anim8_text
         add_settings_field( 
             'anim8_text_animation',                // Field ID
-            'Saisissez votre text :',                       // Title
+            'Saisissez votre texte :',                       // Title
             __( 'anim8_text_field_markup', 'example' ),     // Callback to display the field
             'anim8_text_page',                // Page
             'anim8_text_option',                      // Section
@@ -560,13 +560,13 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $value   = $setting ?: '';
             ?>
                 <input type="textarea" name="text_anim_8" rows="5" cols="33" value="<?php echo esc_attr( $value );?>">   
-                <p>terminez chaque phrase par ':' (ex: "phrase1 : Phrase2 :)</p> 
+                <p>Terminez chaque phrase par le signe ':' (ex: phrase1 : Phrase2 :)</p> 
             <?php
         }  
       //anim8_fontSize
         add_settings_field( 
             'anim8_size_animation',                // Field ID
-            'taille du texte (10-30) :',                       // Title
+            'taille du texte (10 à 30 px) :',                       // Title
             __( 'anim8_size_field_markup', 'example' ),     // Callback to display the field
             'anim8_text_page',                // Page
             'anim8_text_option',                      // Section
@@ -712,12 +712,16 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $setting = get_option( 'gif_animation_selection' );
             $value   = $setting ?: '';
             ?>
+            <div class="flexD align-item-center just-content-around">
                 <select type="select" name="gif_animation_selection" id="code_gif" >
                     <option value="gif_animation_0" <?php if (get_option( 'gif_animation_selection')=='gif_animation_0'){echo 'selected';} ?>>animation gif personnalisé</option>
                     <option value="gif_animation_1" <?php if (get_option( 'gif_animation_selection')=='gif_animation_1'){echo 'selected';} ?>>Turning</option>
                     <option value="gif_animation_2" <?php if (get_option( 'gif_animation_selection')=='gif_animation_2'){echo 'selected';} ?>>Elastic</option>
                     <option value="gif_animation_3" <?php if (get_option( 'gif_animation_selection')=='gif_animation_3'){echo 'selected';} ?>>Sound</option>
                 </select>
+                <p><input type="submit" name="submit" id="submit" class="button button-primary" value="VOIR" style="background-color: #28283a;"></p>
+            
+            </div>
             <?php
         }
       //lien_animation_gif
@@ -812,7 +816,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //gif_size
         add_settings_field( 
             'gif_size_field',                // Field ID
-            'Size :',                       // Title
+            'Size (echelle/scale) :',                       // Title
             __( 'gif_size_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_Gif_page',                // Page
             'animation_gif_option',                      // Section
@@ -824,7 +828,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
               ?>
   
                   <input id="objsize" class="regular-text" type="number" step="0.01" name="gif_size" value="<?php echo esc_attr( $value );?>">
-                  <p> en facteur (exemple : 1.2)</p>
+                  <p> En facteur (exemple : 1.2)</p>
               <?php
           }
       //
@@ -878,6 +882,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $setting = get_option( 'lotti_animation_selection' );
             $value   = $setting ?: '';
             ?>
+            <div class="flexD align-item-center just-content-around">
                 <select name="lotti_animation_selection" id="code_lotti">
                     <option value="lotti_animation_0" <?php if (get_option( 'lotti_animation_selection')=='lotti_animation_0'){echo 'selected';} ?>>animation lotti personnalisé</option>
                     <option value="lotti_animation_1" <?php if (get_option( 'lotti_animation_selection')=='lotti_animation_1'){echo 'selected';} ?>>Green Web</option>
@@ -886,6 +891,9 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                     <option value="lotti_animation_4" <?php if (get_option( 'lotti_animation_selection')=='lotti_animation_4'){echo 'selected';} ?>>Food & drink</option>
                     <option value="lotti_animation_5" <?php if (get_option( 'lotti_animation_selection')=='lotti_animation_5'){echo 'selected';} ?>>Smoothy</option>
                 </select>
+                <p><input type="submit" name="submit" id="submit" class="button button-primary" value="VOIR" style="background-color: #28283a;"></p>
+            
+            </div>
             <?php
         }
       //
@@ -1002,7 +1010,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //lotti_size
         add_settings_field( 
             'lotti_size_field',                // Field ID
-            'Size :',                       // Title
+            'Size (echelle/scale) :',                       // Title
             __( 'lotti_size_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_Lotti_page',                // Page
             'animation_Lotti_option',                      // Section
@@ -1014,7 +1022,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
               ?>
   
                   <input id="objsize" class="regular-text" type="number" step="0.01" name="lotti_size" value="<?php echo esc_attr( $value );?>">
-                  <p> en facteur (exemple : 1.2)</p>
+                  <p> En facteur (exemple : 1.2)</p>
               <?php
           }
       //
@@ -1068,6 +1076,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
             $setting = get_option( 'css_code_animation' );
             $value   = $setting ?: '';
             ?>
+            <div class="flexD align-item-center just-content-around">
                 <select name="css_code_animation" id="code_css">
                     <option value="css_animation_1" <?php if (get_option( 'css_code_animation')=='css_animation_1'){echo 'selected';} ?>>Digital cube</option>
                     <option value="css_animation_2" <?php if (get_option( 'css_code_animation')=='css_animation_2'){echo 'selected';} ?>>Nenuphar</option>
@@ -1078,6 +1087,9 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
                     <option value="css_animation_7" <?php if (get_option( 'css_code_animation')=='css_animation_7'){echo 'selected';} ?>>Xplode</option>
                     <option value="css_animation_8" <?php if (get_option( 'css_code_animation')=='css_animation_8'){echo 'selected';} ?>>Writting</option>
                 </select>
+                <p><input type="submit" name="submit" id="submit" class="button button-primary" value="VOIR" style="background-color: #28283a;"></p>
+            
+            </div>
             <?php
         }
       //css_background_color
@@ -1170,7 +1182,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
       //css_size
         add_settings_field( 
             'css_size_field',                // Field ID
-            'Size :',                       // Title
+            'Size (echelle/scale) :',                       // Title
             __( 'css_size_field', 'example' ),     // Callback to display the field
             'Mocha_Prod_Preloader_CSS_page',                // Page
             'animation_CSS_option',                      // Section
@@ -1182,7 +1194,7 @@ if ( ! class_exists( 'Preloader_Mocha_Opt' ) )
               ?>
   
                   <input id="objsize" class="regular-text" type="number" step="0.01" name="css_size" value="<?php echo esc_attr( $value );?>">
-                  <p> en facteur (exemple : 1.2)</p>
+                  <p> En facteur (exemple : 1.2)</p>
               <?php
           }
       //css_position_top

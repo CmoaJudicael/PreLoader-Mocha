@@ -1,3 +1,4 @@
+<!--RAIN COLOR-->
 <div id="cadre">
 
 </div>
@@ -51,7 +52,7 @@
             rond.style.left= (rand)+'px';
             rond.style.top='0px';
             rond.style.animation=timeAnim+'s ease-out 0s 1 bubbleMove';
-            moncadre.append(rond)
+            document.getElementById('BackContainer').append(rond)
             let count = 0;
             let int=0;
             setTimeout(remBubble,1000,rond);

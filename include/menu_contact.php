@@ -67,7 +67,7 @@
             <li><span class="underline">GIF URL (media) : </span> <p> Insérez ici l'URL de votre gif, à récupérer dans votre bibliothèque de média après l’avoir téléversé (voir tutoriel). Vous pouvez aussi utiliser des sites spécialisés tels que GIPHY…  </p></span></li>
             <li><span class="underline">Background-color : #</span> <p>Vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #.</p></li>
             <li><span class="underline">Duree animation : s</span> <p>Vous pouvez choisir la durée minimale de votre animation en seconde.</p></li>
-            <li><span class="underline">Size: </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimé en selon un facteur (exemple : 1.2).</p></li>
+            <li><span class="underline">Size: </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimée en échelle (exemple : 1.2).</p></li>
           </ul>
 
         </div>
@@ -95,7 +95,7 @@
             <li><span class="underline">Lotti URL (media) : </span> <p>Insésez ici l'URL « assets » de votre animation Lottie personnalisée (voir tutoriel).</p></span></li>
             <li><span class="underline">Background-color : #</span> <p>Vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #.</p></li>
             <li><span class="underline">Duree animation : s</span> <p>Vous pouvez choisir la durée minimale de votre animation en seconde.</p></li>
-            <li><span class="underline">Size : </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimé en selon un facteur (exemple : 1.2).</p></li>
+            <li><span class="underline">Size : </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimée en échelle (exemple : 1.2).</p></li>
           </ul>
 
         </div>
@@ -123,7 +123,7 @@
             <li><span class="underline">Background-color : #</span> <p>vous pouvez choisir la couleur de l'arrière plan, en code hexa. Ne saisissez que le code hexa sans le signe #</p></li>
             <li><span class="underline">Couleur animation : #</span> <p>vous pouvez choisir la couleur de l'aanimation, en code hexa. Ne saisissez que le code hexa sans le signe #, vous pouvez modifier trois couleurs dans l'animation</p></li>
             <li><span class="underline">Duree animation : s</span> <p>vous pouvez choisir la durée minimale de votre animation en seconde</p></li>
-            <li><span class="underline">Size : </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimé en selon un facteur (exemple : 1.2).</p></li>
+            <li><span class="underline">Size : </span> <p>Vous pouvez choisir la grandeur de votre animation. La valeur est exprimée en échelle (exemple : 1.2).</p></li>
           </ul>
 
         </div>
@@ -148,7 +148,7 @@
           <p><h2>Découvrez chaque réglage de configuration : </h2></p>
           <ul>
             <li><span class="underline">URL du logo (media) : </span> <p>Insérez ici l'URL de votre logotype, à récupérer dans votre bibliothèque de média après l’avoir téléversé (voir tutoriel).</p></span></li>
-            <li><span class="underline">Scale : </span> <p>Vous pouvez choisir le scale de votre logo pour l'agrandir ou le rétrécir.</p></li>
+            <li><span class="underline">Scale : </span> <p>Vous pouvez choisir le scale de votre logo pour l'agrandir ou le rétrécir. La valeur est exprimée en échelle (exemple : 1.2).</p></li>
             <li><span class="underline">Visible</span> <p>vous pouvez choisir de ne pas utiliser de logo et de le rendre invsible.</p></li>
           </ul>
 

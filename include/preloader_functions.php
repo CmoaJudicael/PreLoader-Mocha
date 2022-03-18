@@ -19,7 +19,7 @@
      (
         'Mocha_Prod_Preloader_main_page', 
         'personnaliser',
-        'personnaliser',
+        'Personnaliser',
         'manage_options',
         'Mocha_Prod_Preloader_personnaliser_page',
         'personnaliser_page',

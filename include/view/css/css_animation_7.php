@@ -1,3 +1,4 @@
+<!--XPLODE-->
 <div id="cadre">
     <div class="text"></div>
 </div>
@@ -50,8 +51,8 @@
             rond.style.height= dim;
             rond.style.borderRadius='25%';
             rond.style.position='absolute';
-            rond.style.left= '200px';
-            rond.style.top='200px';
+            rond.style.left= '-5px';
+            rond.style.top='-5px';
             rond.className='carre';
             moncadre.append(rond);
 

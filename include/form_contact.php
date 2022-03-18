@@ -40,41 +40,7 @@
             <input class="button" type="submit" value="Envoyer">
         </div>
     </form>
+    <link rel="stylesheet" href="css/css_form_contact.css">
 
-<!-- Style -->
-    <style>
-        body
-        {
-            background-color: #28283A;
-            color: whitesmoke;
-        }
-        .button 
-        {
-            background-color: #FCC600;
-            border: none;
-            color: #28283A;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-        .buttonContainer
-        {
-            justify-content: end;
-        }
-        .flexB
-        {
-            display: flex;
-        }
-        .flexB-column
-        {
-            flex-direction: column;
-        }
-        .flexB-JContent-center
-        {
-            justify-content: center;
-        }
-    </style>
 </body>
 </html>
