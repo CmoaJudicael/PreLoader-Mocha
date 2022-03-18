@@ -1,3 +1,4 @@
+<!--DESIGN GEOGRAPHIQUE-->
 <figure>
   <div></div><div></div>
   <div></div><div></div>

@@ -494,6 +494,14 @@
         {
             justify-content: space-evenly;
         }
+        .align-item-center
+        {
+            align-items: center;
+        }
+        .just-content-around
+        {
+            justify-content: space-around;
+        }
         .hand_Cursor
         {
             cursor: pointer;
@@ -886,13 +894,17 @@
         }
         <?php
             if (get_option('menu_position')=='1') 
-            {?>
+            {
+                if(get_option('css_code_animation')!='css_animation_6')
+                {
+                ?>
                 #animation:hover
                 {            
                     border: #28283A 4px dashed;
                     margin: -4px;
                     
                 }
+                <?php } ?>
                 #img_logo:hover
                 {            
                     border: #28283A 4px dashed;
@@ -900,6 +912,7 @@
             
                 }
                 <?php
+                
             }
         ?>
         #BackContainer
@@ -1102,7 +1115,10 @@
       
       /** */
       /**Script drag and drop animation */
-        
+        <?php
+         if(get_option('css_code_animation')!='css_animation_6')
+         {
+        ?>
         var obj = document.getElementById('animation');
         var objPosTop = document.getElementById('objTop');
         var objPosLeft= document.getElementById('objLeft');
@@ -1162,7 +1178,9 @@
         {
             return false;
         };
-
+        <?php
+         }
+        ?>
     //
       /**Script drag and drop logo */
         <?php if (get_option('logo_isVivible')=='1') 

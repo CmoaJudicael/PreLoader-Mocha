@@ -1,3 +1,5 @@
+<!--WRITTING-->
+
 <div id="cadre">
     <div class="text"><p id="anim"></p><p id="barre">|</p></div>
 </div>

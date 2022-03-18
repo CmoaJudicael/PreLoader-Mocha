@@ -12,7 +12,7 @@
       </a> 
   <article class="font_style">
     <p class="center">Mocha Preloader vous propose des preloader en Gif, Css ou Lotti à intégrer sur votre site internet. <br>
-    Simples et efficaces, nos preloader n'impactent pas le chargement de vos pages web… Vos lecteurs ne perdrons plus patience à attendre ! <br>
+    Simples et efficaces, nos preloader n'impactent pas le chargement de vos pages web… <br> Vos lecteurs ne perdrons plus patience à attendre ! <br>
 
 
 Nous vous proposons d’intégrer votre propre animation ou personnaliser les nôtres, pour une attractivité à votre image.<br> </p>
@@ -22,6 +22,7 @@ Nous vous proposons d’intégrer votre propre animation ou personnaliser les n�
       <p><b>COMMENCER</b></p>
     </a>
   </article>
+  
 <!-- Style CSS -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500;700;900&family=Montserrat:wght@300;500;700;900&display=swap');
